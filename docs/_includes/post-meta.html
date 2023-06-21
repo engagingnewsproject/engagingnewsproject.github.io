@@ -1,0 +1,19 @@
+{% assign post = include.post %}
+<ul class="post-meta inline">
+	{%- if post.site -%}
+	<li>
+		<span class="svg-icon">{%- include icons/link.svg -%}</span>
+		<a href="{{ post.site | relative_url }}" target="_blank">{{ post.site_shortname | escape }}</a>
+	</li>
+	{%- endif -%}
+	{%- if post.github -%}
+	<li>
+		<svg class="svg-icon">
+			{%- include social-icons/github.svg fill = "#2f81f7" -%}
+		</svg>
+		<a href="{{ post.github }}" target="_blank">
+			{{ post.github_shortname }}
+		</a>
+	</li>
+	{%- endif -%}
+</ul>

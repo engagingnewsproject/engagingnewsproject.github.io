@@ -1,6 +1,27 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
 
-li {
-	  border-bottom: 1px solid $border-color-01;
+ul {
+	&.inline {
+		list-style: none;
+		display: inline-flex;
+		> li {
+			margin-right: 1em;
+		}
+	}
+}
+
+.post-list {
+	> li {
+		border-bottom: 1px solid $border-color-01;
+	}
+	.post-meta {
+		margin-bottom: 30px;
+	}
+}
+
+// post pages
+
+.post-header {
+	border-bottom: 1px solid $border-color-01;
 }
