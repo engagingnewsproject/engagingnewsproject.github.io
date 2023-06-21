@@ -28,8 +28,6 @@ github_username:  engagingnewsproject
 markdown: kramdown
 remote_theme: jekyll/minima
 plugins:
-  - jekyll-seo-tag
-  - jekyll-feed
   - jekyll-remote-theme
 
 sass:
