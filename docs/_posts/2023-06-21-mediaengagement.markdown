@@ -1,8 +1,11 @@
 ---
 layout: post
 title:  "Center for Media Engagement Docs"
-date:   2023-06-21 07:12:12 -0700
+date:   2023-06-21 09:12:12 -0700
 categories: docs
+site: https://mediaengagement.org/
+excerpt: The core platform for the CME public facing website and peripheral solutions.
+github: https://github.com/engagingnewsproject/enp-platform
 ---
 # Installing
 
@@ -138,3 +141,6 @@ categories: docs
 
 <!-- Docs to Markdown version 1.0β21 -->
 
+
+
+[def]: https://mediaengagement.org/
