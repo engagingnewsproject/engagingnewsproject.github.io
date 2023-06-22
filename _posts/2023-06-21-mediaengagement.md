@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Center for Media Engagement Docs"
+title:  "mediaengagement.org Docs"
 date:   2023-06-21 09:12:12 -0700
 categories: docs
 site: https://mediaengagement.org/
