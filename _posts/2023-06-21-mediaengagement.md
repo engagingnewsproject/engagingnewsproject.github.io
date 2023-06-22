@@ -8,7 +8,6 @@ site_shortname: mediaengagement.org
 excerpt: The core platform for the CME public facing website and peripheral solutions.
 github: https://github.com/engagingnewsproject/enp-platform
 github_shortname: engagingnewsproject/enp-platform
-toc: true
 ---
 # Installing
 
