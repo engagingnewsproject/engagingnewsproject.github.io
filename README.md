@@ -44,5 +44,3 @@ github_shortname: engagingnewsproject/fb-study
 ---
 Content here <-- Actual page/post markdown content add after `---` above.
 ```
-
-[TOC](https://github.com/toshimaru/jekyll-toc)
