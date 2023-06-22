@@ -1,7 +1,45 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
-@import "minima/sidebar";
+@import "minima/poole";
+@import "minima/syntax";
+@import "minima/lanyon";
 
+/* Black Theme */
+body {
+  color: $dm-text-color;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+.theme-base-0g .sidebar,
+.theme-base-0g .sidebar-toggle:active,
+.theme-base-0g #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: #202020;
+}
+.theme-base-0g .container a,
+.theme-base-0g .sidebar-toggle,
+.theme-base-0g .related-posts li a:hover {
+  color: $link-base-color;
+}
+// header title
+.masthead-title {
+	display: flex;
+	  @include media-query($on-medium) {
+		display: block;
+	}
+}
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+  color: #fff;
+}
+.sidebar {
+	// @include media-query($on-medium) {
+		// left: 0;
+	// }
+	    transform: translateX(14rem);
+
+}
 h4 {
 	text-transform: uppercase;
 }

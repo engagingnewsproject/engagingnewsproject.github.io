@@ -40,17 +40,6 @@ body {
   overflow-x: hidden;
 }
 
-html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #313131;
-  letter-spacing: -.025rem;
-}
-
 
 /*
  * Wrapper
@@ -217,8 +206,7 @@ a.sidebar-nav-item:focus {
   display: flex;
   align-items: center;
   padding: .25rem .75rem;
-  color: #505050;
-  background-color: #fff;
+  color: $dm-text-color;
   border-radius: .25rem;
   cursor: pointer;
 }
@@ -228,7 +216,8 @@ a.sidebar-nav-item:focus {
   width: 32px;
   height: 32px;
   content: "";
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23555' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='25.714'%3E%3Cpath fill='%23FFF' d='M0 2.143A2.14 2.14 0 0 1 2.143 0h25.714A2.14 2.14 0 0 1 30 2.143a2.14 2.14 0 0 1-2.143 2.143H2.143A2.14 2.14 0 0 1 0 2.143Zm0 10.714a2.14 2.14 0 0 1 2.143-2.143h25.714A2.14 2.14 0 0 1 30 12.857 2.14 2.14 0 0 1 27.857 15H2.143A2.14 2.14 0 0 1 0 12.857Zm30 10.714a2.14 2.14 0 0 1-2.143 2.143H2.143A2.14 2.14 0 0 1 0 23.571a2.14 2.14 0 0 1 2.143-2.142h25.714A2.14 2.14 0 0 1 30 23.57Z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
 }
 
 .sidebar-toggle:active,
@@ -531,7 +520,6 @@ a.pagination-item:hover {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
-
 
 /*
  * Overlay sidebar

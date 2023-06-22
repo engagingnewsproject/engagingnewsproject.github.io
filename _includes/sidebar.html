@@ -1,12 +1,14 @@
 <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
 	<div class="sidebar-item">
+		{%- if page.path contains '_posts' -%}
 		<sub>Table of Contents</sub>
-		<p>{{ page.title }}</p>
+		{%- endif -%}
+		<h4>{{ page.title }}</h4>
 	</div>
 	<nav class="sidebar-nav">
 			<div id="table-of-contents" class="sidebar-nav__toc">

@@ -8,7 +8,7 @@ CME Documentation for all projects built with:
 - [jekyll-toc](https://github.com/toshimaru/jekyll-toc)
 - [lanyon theme sidebar](https://github.com/poole/lanyon)
 - [Best Jekyll Cheat Sheet](https://cloudcannon.com/cheat-sheets/jekyll/)
-
+- [How to Change Your Jekyll Theme](https://www.inmotionhosting.com/support/website/jekyll/how-to-change-your-jekyll-theme-with-rubygems/)
 ## Edit the content/pages
 
 - [Creating new posts](https://jekyllrb.com/docs/posts/)
