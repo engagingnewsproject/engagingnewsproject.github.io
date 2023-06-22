@@ -20,6 +20,7 @@ author:
 description: >- # this means to ignore newlines until "baseurl:"
   CME Documentation built on GitHub Pages.
 baseurl: "" # the subpath of your site, e.g. /blog
+permalink: /:title/
 url: "engagingnewsproject.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: EngagingNews
 github_username:  engagingnewsproject
@@ -29,6 +30,7 @@ markdown: kramdown
 remote_theme: jekyll/minima
 plugins:
   - jekyll-remote-theme
+  - jekyll-toc
 
 sass:
   quiet_deps: true
@@ -40,7 +42,24 @@ minima:
   social_links:
     - { platform: github, user_url: "https://github.com/engagingnewsproject" }
     - { platform: twitter, user_url: "https://twitter.com/EngagingNews"}
-  
+
+# Enable TOC by default with Front Matter Defaults:
+defaults:
+  - scope:
+      path: ""
+    values:
+      toc: true
+      
+# TOC Default Configuration
+toc:
+  min_level: 1
+  max_level: 10
+  no_toc_section_class: no_toc_section
+  list_id: toc
+  list_class: section-nav
+  sublist_class: 'toc-list'
+  item_class: toc-entry sidebar-nav-item
+  item_prefix: toc-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
