@@ -7,6 +7,7 @@ CME Documentation for all projects built with:
 - [Minima Theme](https://github.com/jekyll/minima)
 - [jekyll-toc](https://github.com/toshimaru/jekyll-toc)
 - [lanyon theme sidebar](https://github.com/poole/lanyon)
+- [Best Jekyll Cheat Sheet](https://cloudcannon.com/cheat-sheets/jekyll/)
 
 ## Edit the content/pages
 
