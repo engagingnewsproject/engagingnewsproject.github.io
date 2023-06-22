@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Center for Media Engagement Docs
+title: CME Docs
 author:
-  name: Engaging News Project Documentation
+  name: 
   email: mediaengagement@austin.utexas.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  ENP Documentation site built on GitHub Pages.
+  CME Documentation built on GitHub Pages.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "engagingnewsproject.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: EngagingNews

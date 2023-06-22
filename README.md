@@ -1,2 +1,2 @@
 # engagingnewsproject.github.io
-Engaging News Project Documentation
+CME Documentation
