@@ -6,40 +6,95 @@
 
 /* Black Theme */
 body {
-  color: $dm-text-color;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+	color: $dm-text-color;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 .theme-base-0g .sidebar,
 .theme-base-0g .sidebar-toggle:active,
 .theme-base-0g #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #202020;
+	background-color: $sidebar-background-color;
 }
 .theme-base-0g .container a,
 .theme-base-0g .sidebar-toggle,
 .theme-base-0g .related-posts li a:hover {
-  color: $link-base-color;
+	color: $link-base-color;
 }
-// header title
+
+.masthead {
+	border-top: 2px solid $border-color-01;
+	@media screen and (min-width: 1000px) {
+		border-bottom: none;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	@include media-query($on-large) {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+				border-bottom: 2px solid $border-color-01;
+	}
+}
+
 .masthead-title {
-	display: flex;
-	  @include media-query($on-medium) {
+	text-align: left;
+	&:not(.masthead-title__sidebar) {
+	display: none;
+	@media screen and (max-width: 1000px) {
 		display: block;
+		text-align: center;
+	} 
+}
+}
+
+.container {
+	margin-left: 6rem;
+	@include media-query($on-medium) {
+		margin-left: auto;
 	}
 }
 /* Blog post or page title */
 .page-title,
 .post-title,
 .post-title a {
-  color: #fff;
+	color: #fff;
 }
 .sidebar {
-	// @include media-query($on-medium) {
-		// left: 0;
-	// }
-	    transform: translateX(14rem);
-
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@media screen and (min-width: 1000px) {
+		border-top: 2px solid $border-color-01;
+	}
 }
+.sidebar-nav-item {
+	padding-top: 0;
+	padding-bottom: 0;
+	> a {
+		line-height: 3em;
+		white-space: nowrap;
+	}
+}
+a.sidebar-nav-item,
+span.sidebar-nav-item {
+	line-height: 3em;
+}
+#sidebar-checkbox:checked ~ .sidebar {
+	transform: translateX(14rem);
+	@include media-query($on-large) {
+		// transform: unset;
+	}
+}
+#sidebar-checkbox:checked ~ .wrap {
+	@include media-query($on-large) {
+		transform: unset;
+	}
+}
+.sidebar-toggle {
+	@include media-query($on-palm) {
+		// display: none;
+	}
+}
+
 h4 {
 	text-transform: uppercase;
 }
@@ -70,7 +125,12 @@ ul {
 
 // TOC
 .section-nav {
-	& ul,ul {
+	margin-left: 0;
+	@include media-query($on-large) {
+		margin-left: initial;
+	}
+	& ul,
+	ul {
 		margin-left: 0;
 	}
 }

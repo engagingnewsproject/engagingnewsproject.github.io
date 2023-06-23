@@ -1,16 +1,25 @@
 <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
-	<div class="sidebar-item">
-		{%- if page.path contains '_posts' -%}
-		<sub>Table of Contents</sub>
-		{%- endif -%}
-		<h4>{{ page.title }}</h4>
-	</div>
+
 	<nav class="sidebar-nav">
+			<div class="sidebar-item">
+				<h3 class="masthead-title masthead-title__sidebar">
+					<a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+					<small>{{ site.tagline }}</small>
+				</h3>
+				{%- if page.path contains 'index' -%}
+				<h4>Home</h4>
+				{%- else -%}
+				<h4>{{ page.title }}</h4>
+				{%- endif -%}
+				{%- if page.path contains '_posts' -%}
+				<sub>Table of Contents</sub>
+				{%- endif -%}
+			</div>
 			<div id="table-of-contents" class="sidebar-nav__toc">
 				{% toc %}
 			</div>
@@ -31,14 +40,18 @@
 		{% endif %}
 		{% endfor %}
 
-		<a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-		<a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-		<span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+		<a class="sidebar-nav-item" href="https://github.com/{{ site.github_username }}" target="_blank">GitHub project</a>
+		<span class="sidebar-nav-item"></span>
 	</nav>
 
-	<div class="sidebar-item">
-		<p>
+	<div class="sidebar-item sidebar-item__footer">
+		<sub>
 			&copy; {{ site.time | date: '%Y' }}. All rights reserved.
-		</p>
+			<br>
+			Currently v{{ site.version }}
+		</sub>
+				<div class="social-links">
+					{%- include social.html -%}
+				</div>
 	</div>
 </div>
