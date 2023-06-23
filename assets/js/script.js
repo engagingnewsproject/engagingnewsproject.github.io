@@ -3,9 +3,9 @@
 	var sidebar = document.querySelector("#sidebar")
 	var checkbox = document.querySelector("#sidebar-checkbox")
 	var widths = [0, 500, 1000]
-	if (window.innerWidth > widths[2]) {
+	if (window.innerWidth < widths[2]) {
 		console.log("object")
-		checkbox.setAttribute("checked", "checked")
+		checkbox.removeAttribute("checked")
 	}
 	document.addEventListener(
 		"click",
