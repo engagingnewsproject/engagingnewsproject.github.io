@@ -12,12 +12,13 @@
 					<small>{{ site.tagline }}</small>
 				</h3>
 				{%- if page.path contains 'index' -%}
-				<h4>Home</h4>
+				<sub class="sidebar-nav__page-title">Home</sub>
 				{%- else -%}
-				<h4>{{ page.title }}</h4>
+				<sub class="sidebar-nav__page-title">{{ page.title }}</sub>
 				{%- endif -%}
 				{%- if page.path contains '_posts' -%}
-				<sub>Table of Contents</sub>
+				<br>
+				<sub class="sidebar-nav__page-title">Table of Contents</sub>
 				{%- endif -%}
 			</div>
 			<div id="table-of-contents" class="sidebar-nav__toc">
