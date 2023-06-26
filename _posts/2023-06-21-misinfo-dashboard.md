@@ -61,7 +61,7 @@ git clone https://github.austin.utexas.edu/caet-saga/misinfo-dashboard.git
 npm install
 ```
 
-## Run the Development Server
+## Run Local Server
 
 1. Start the development server.
 
@@ -79,7 +79,7 @@ npm install
 
 2. Visit `http://localhost:3000` to view your application.
 
-## Useful Development Tools
+## Tools
 
 - [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 
@@ -285,7 +285,7 @@ Files |
 
 Switches between graph views
 - Graph views use react charts library.
-### Top 3 Trending Topics Overview Graph
+### Overview Graph
 Bar graph that displays the number of reports from the previous day for the top 3 trending topics
 
 - Can choose a specific date range as well.

@@ -20,7 +20,9 @@ body {
 .theme-base-0g .related-posts li a:hover {
 	color: $link-base-color;
 }
-
+pre {
+	background-color: $border-color-02;
+}
 .masthead {
 	border-top: 2px solid $border-color-01;
 	@media screen and (min-width: 1000px) {
@@ -31,23 +33,23 @@ body {
 	@include media-query($on-large) {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
-				border-bottom: 2px solid $border-color-01;
+		border-bottom: 2px solid $border-color-01;
 	}
 }
 
 .masthead-title {
 	text-align: left;
 	&:not(.masthead-title__sidebar) {
-	display: none;
-	@media screen and (max-width: 1000px) {
-		display: block;
-		text-align: center;
-	} 
-}
+		display: none;
+		@media screen and (max-width: 1000px) {
+			display: block;
+			text-align: center;
+		}
+	}
 }
 
 .container {
-	margin-left: 6rem;
+	margin-left: 3rem;
 	@include media-query($on-medium) {
 		margin-left: auto;
 	}
@@ -66,8 +68,26 @@ body {
 		border-top: 2px solid $border-color-01;
 	}
 }
-.sidebar-nav__page-title {
+.doc-posts-list {
+	list-style: none;
+	.sidebar-nav-item {
+		color: $lm-brand-color;
+		padding-left: 2rem;
+			&.active {
+	background-color: $subtitle-bk-color;
+
+		}
+	}
+}
+.sidebar-nav__page-title,
+.sidebar-nav__toc-title {
 	color: $lm-brand-color;
+}
+.sidebar-nav__toc-title {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	line-height: 3;
+	margin-bottom: 0;
 }
 .sidebar-nav-item {
 	padding-top: 0;
