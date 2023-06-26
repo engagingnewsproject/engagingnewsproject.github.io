@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Article Experiment"
-date:   2023-06-26 02:12:12 -0700
+date:   2023-06-25 02:12:12 -0700
 categories: docs
 site: http://thegazettestar.com
 site_shortname: thegazettestar.com
