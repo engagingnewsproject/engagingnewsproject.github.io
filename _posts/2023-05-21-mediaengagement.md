@@ -152,7 +152,7 @@ Engage CSS is compiled with [SCSS](https://sass-lang.com/).
 - When you start up your dev environment with `npm run watch` changes to SCSS files located in the `assets/scss` directory are compiled (via the `assets/scss/app.scss` file) to `engage/dist/css/app.css`. 
 - When running `npm run production` at the end of your development session `engage/dist/css/app.css` is minified for the production environment. 
 
-#### SCSS Workflow
+##### SCSS Workflow
 
 Since we use [mobile first](https://medium.com/@Vincentxia77/what-is-mobile-first-design-why-its-important-how-to-make-it-7d3cf2e29d00) design the first properties you call on an element will be for the mobile display. The same with [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) at-rule. 
 
@@ -496,7 +496,7 @@ Important things to remember:
 
 After changes have been pushed to the [Staging Site](https://cmestaging.wpengine.com/) send a link to Kat for review.
 
-# Quick Working Development Guide
+## Quick Working Development Guide
 
 When you take on a task:
 
@@ -544,7 +544,7 @@ After your code is reviewed:
 
 * For deployment flow, see the [Deployment Summary](https://github.com/engagingnewsproject/enp-platform/wiki/Development#deployment-summary).
 
-# Branching
+## Branching
 
 **Quick Legend**
 
@@ -591,7 +591,7 @@ After your code is reviewed:
   </tr>
 </table>
 
-## Main Branches
+### Main Branches
 
 The main repository will always hold two evergreen branches:
 
@@ -604,7 +604,7 @@ Consider `origin/stable` to always represent the latest code deployed to product
 
 When the source code in the `master` branch is stable and has been deployed, all of the changes will be merged into `stable` and tagged with a release number. _How this is done in detail will be discussed later._
 
-## Supporting Branches
+### Supporting Branches
 
 Supporting branches are used to aid parallel development between team members, ease tracking of features, and to assist in quickly fixing live production problems. Unlike the main branches, these branches always have a limited life time, since they will be removed eventually.
 
@@ -616,7 +616,7 @@ The different types of branches we may use are:
 
 Each of these branches have a specific purpose and are bound to strict rules as to which branches may be their originating branch and which branches must be their merge targets. Each branch and its usage is explained below.
 
-## Feature Branches
+### Feature Branches
 
 Feature branches are used when developing a new feature or enhancement which has the potential of a development lifespan longer than a single deployment. When starting development, the deployment in which this feature will be released may not be known. No matter when the feature branch will be finished, it will always be merged back into the master branch.
 
@@ -653,7 +653,7 @@ $ git push origin master                            // push merge changes
 $ git push origin :feature-id                       // deletes the remote branch
 ```
 
-## Bug Branches
+### Bug Branches
 
 Bug branches differ from feature branches only semantically. Bug branches will be created when there is a bug on the live site that should be fixed and merged into the next deployment. For that reason, a bug branch typically will not last longer than one deployment cycle. Additionally, bug branches are used to explicitly track the difference between bug development and feature development. No matter when the bug branch will be finished, it will always be merged back into `master`.
 
@@ -691,7 +691,7 @@ $ git push origin master                            // push merge changes
 $ git push origin :bug-id                           // deletes the remote branch
 ```
 
-## Hotfix Branches
+### Hotfix Branches
 
 A hotfix branch comes from the need to act immediately upon an undesired state of a live production version. Additionally, because of the urgency, a hotfix is not required to be be pushed during a scheduled deployment. Due to these requirements, a hotfix branch is always branched from a tagged `stable` branch. This is done for two reasons:
 
@@ -732,7 +732,7 @@ $ git push origin master                            // push merge changes
 $ git push origin :hotfix-id                        // deletes the remote branch
 ```
 
-# Deployment Summary
+# Deployment
 
 There are three sites that make up our deployment flow:
 
@@ -786,7 +786,7 @@ or clear the cache & reset file permissions per-site through the WordPress WP En
 ![cme-reset-file-permissions](https://user-images.githubusercontent.com/30611098/191086368-e0056a02-0c5d-4f8f-a450-01e71e0ff2c3.png)
 
 
-# Git Troubleshooting
+##### Git Troubleshooting
 
 1. Merge conflicts: 
 
@@ -814,11 +814,11 @@ error: failed to push some refs to 'git@git.wpengine.com:production/cmengage.git
 $ git push -f production stable
 ```
 
-# Workflow Diagram
+##### Workflow Diagram
 
 ![Workflow Diagram](https://i.ibb.co/WP5xNFt/687474703a2f2f662e636c2e6c792f6974656d732f3369315a336e3154316b3339327231413351306d2f676974666c6f772d6d6f64656c2e3030312e706e67.png)
 
-# Command line
+##### Command line
 
 `npm` commands
 
@@ -882,7 +882,9 @@ Confirm WP Engine connectivity
  
     ssh git@git.wpengine.com info
 
-### Setting up Git Push for WPEngine
+##### Git Push with WPEngine
+
+Setting up Git Push for WPEngine
 
 1. Navigate to the ‘[cmengage](https://my.wpengine.com/installs/cmengage)’ instance on WPEngine
 
@@ -955,7 +957,7 @@ _** Be sure to replace your_email@example.com with your own email address_
 - [WP Engine Add SSH Key to User Portal Docs](https://wpengine.com/support/git/#Add_SSH_Key_to_User_Portal)
 
 # Wordpress
-## WordPress hooks and filters
+## Hooks and filters
 
 They're the foundation of how to build things in WordPress. The very, very basic idea is: 
 - Hooks are used when you want something to happen at a certain time. Like, when a post is saved, do this unrelated thing.
@@ -984,7 +986,9 @@ Simple interface for adding new publications to the publications page:
 3. Delete a publication.
 4. Add a publication in between.
 
-## Adding A New Post Type Or Taxonomy
+## New Post Type/Taxonomy
+
+How to add a new post type or taxonomy.
 
 1. Add the post type and taxonomy as one file under `/Managers/Structures/PostTypes`
 
