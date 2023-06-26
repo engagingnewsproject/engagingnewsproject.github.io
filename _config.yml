@@ -54,7 +54,7 @@ defaults:
 # TOC Default Configuration
 toc:
   min_level: 1
-  max_level: 10
+  max_level: 4
   no_toc_section_class: no_toc_section
   list_id: toc
   list_class: section-nav
