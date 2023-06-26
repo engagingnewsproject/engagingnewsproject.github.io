@@ -13,6 +13,11 @@ CME Documentation for all projects built with:
 
 - [Creating new posts](https://jekyllrb.com/docs/posts/)
 
+## Local Dev
+
+Run dev server:
+
+`bundle exec jekyll serve --livereload`
 
 # New Documentation Page/Post
 ### 1. New Post File Name

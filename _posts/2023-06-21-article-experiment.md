@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Article Experiment"
-date:   2023-06-25 02:12:12 -0700
+title: "Article Experiment"
+date: 2023-06-21 010:12:12 -0700
 categories: docs
 site: http://thegazettestar.com
 site_shortname: thegazettestar.com
-excerpt: The Gazette Star article experiment. http://thegazettestar.com/
-github: [https://github.com/engagingnewsproject/fb-study](https://github.com/engagingnewsproject/article-experiment)
+excerpt: The Gazette Star article experiment http://thegazettestar.com/.
+github: https://github.com/engagingnewsproject/article-experiment
 github_shortname: engagingnewsproject/article-experiment
 ---
 
