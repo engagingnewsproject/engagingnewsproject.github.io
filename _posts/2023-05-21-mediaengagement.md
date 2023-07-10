@@ -44,6 +44,10 @@ Get directory sizes:
 
 `$ du -h --max-depth 1` 
 
+or to sort
+
+`$ du -h --max-depth 1|sort -h`
+
 # Coding
 
 A collection of general tips and rules of thumb when coding and building a project.
