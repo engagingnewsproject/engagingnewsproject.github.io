@@ -294,6 +294,11 @@ Bar graph that displays the number of reports from the previous day for the top 
 
 Displays list of most recent reports in firebase.
 
+
+Files |   
+---------|----------
+ `components/ReportsSection.jsx` | 
+
 ## Modals
 
 [React URL Modal](https://github.com/remoteoss/react-url-modal) is a React library to help you keep track of your modal state using the URL.
