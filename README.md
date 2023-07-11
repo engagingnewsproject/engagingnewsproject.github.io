@@ -1,6 +1,6 @@
 # engagingnewsproject.github.io
 
-CME Documentation for all projects built with:
+[**CME Documentation**](https://docs.mediaengagement.org/) for all projects built with:
 
 - [GitHub Pages](https://pages.github.com/)
 - [Jekyll](https://jekyllrb.com/)
