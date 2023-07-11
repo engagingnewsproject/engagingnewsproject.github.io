@@ -256,7 +256,14 @@ Line chart that plots the number of reports for the selected topic reports withi
 
 # Components
 
-## Share
+## Navigation
+
+Files |
+------|
+`components/Headbar.jsx` | Top bar including dashboard icon, dashboard title & search input. Imported in `components/Home.jsx` 
+`components/Navbar.jsx` | Left bar of dashboard main navigation.
+
+## Share Report
 
 Redirects to default email client with link to the report
 
@@ -266,6 +273,36 @@ Redirects to default email client with link to the report
 Files |
 ------|
  `pages/dashboard/reports/[reportId].jsx` |
+ 
+## Graph Toggle
+
+Switches between graph views
+
+- Graph views use react charts library.
+
+### Top 3 Trending Topics Overview Graph
+
+Bar graph that displays the number of reports from the previous day for the top 3 trending topics
+
+- Can choose a specific date range as well.
+
+### OverviewGraph & ComparisonGraph*.jsx
+
+`@package: [react-google-charts](https://www.react-google-charts.com/)`. A thin, typed, React wrapper for Google Charts.
+
+Files |   
+---------|----------
+`OverviewGraph.jsx` |
+`ComparisonGraphMenu.jsx` |
+`ComparisonGraphPlotted.jsx` |
+`ComparisonGraphSetup.jsx` |
+## Reports List
+
+Displays list of most recent reports in firebase.
+
+Files |   
+---------|----------
+ `components/ReportsSection.jsx` | 
  
  ## New Report
  
@@ -280,24 +317,6 @@ Files |
  `components/modals/NewReportModal.jsx` |
  
 ## Report Tags
-
-## Graph Toggle
-
-Switches between graph views
-- Graph views use react charts library.
-### Overview Graph
-Bar graph that displays the number of reports from the previous day for the top 3 trending topics
-
-- Can choose a specific date range as well.
-
-## Report List
-
-Displays list of most recent reports in firebase.
-
-
-Files |   
----------|----------
- `components/ReportsSection.jsx` | 
 
 ## Modals
 
