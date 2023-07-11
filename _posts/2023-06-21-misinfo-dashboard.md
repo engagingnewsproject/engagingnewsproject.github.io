@@ -233,8 +233,8 @@ Determines graph of trending topics in the format of the selected graph view (ei
 
 | Files |     |
 | ----- | --- |
-| components/Toggle.jsx | Allows user to switch between view of overgraph and comparison graph |
-| components/TagGraph.jsx | gathers the needed information to display either the overview graph or comparison graph |
+| `components/Toggle.jsx` | Allows user to switch between view of overgraph and comparison graph |
+| `components/TagGraph.jsx` | gathers the needed information to display either the overview graph or comparison graph |
 
 ### Overview Graph
 
@@ -258,10 +258,10 @@ Line chart that plots the number of reports for the selected topic reports withi
 
 ## Navigation
 
-Files |
-------|
-`components/Headbar.jsx` | Top bar including dashboard icon, dashboard title & search input. Imported in `components/Home.jsx` 
-`components/Navbar.jsx` | Left bar of dashboard main navigation.
+| Files
+| ----- |
+| `components/Headbar.jsx` | Top bar including dashboard icon, dashboard title & search input. Imported in `components/Home.jsx` 
+| `components/Navbar.jsx` | Left bar of dashboard main navigation.
 
 ## Share Report
 
