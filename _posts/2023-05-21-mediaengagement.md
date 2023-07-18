@@ -1066,3 +1066,9 @@ Important links:
   ![Screen Shot 2021-07-15 at 11 05 37 AM](https://user-images.githubusercontent.com/30611098/125836219-36b56b4d-f995-45c1-b004-3c3ac8325ba9.png)
 
 - [Also, check out these Rank Math pages for more help.](https://github.com/engagingnewsproject/enp-platform/wiki/WordPress-Plugins#rank-math)
+
+## Taxonomies Explained
+
+_ongoing little tid-bits of valuable info for Verticals, Categories & Tags_
+
+[Media Ethics vertical page](https://mediaengagement.org/vertical/media-ethics/) tiles show up only if you have uploaded a "Category Featured Image" in the `Research/Research Category/[category name]` menu area.
