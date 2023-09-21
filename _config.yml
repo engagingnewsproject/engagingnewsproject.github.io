@@ -25,6 +25,7 @@ url: "https://engagingnewsproject.github.io" # the base hostname & protocol for 
 twitter_username: EngagingNews
 github_username:  engagingnewsproject
 version: 1.0
+port: 4001
 
 # Build settings
 markdown: kramdown

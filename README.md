@@ -17,8 +17,17 @@
 
 Run dev server:
 
-`bundle exec jekyll serve --livereload`
+`bundle exec jekyll serve --livereload --port 4001`
 
+- `--port` is set in `_congig.yml`
+
+### Dev server issues
+
+- `Your Ruby version is 3.1.3, but your Gemfile specified 3.1.4`
+
+  - [Manage Ruby version with asdf](https://mac.install.guide/ruby/6.html)
+	
+	
 # New Documentation Page/Post
 ### 1. New Post File Name
 

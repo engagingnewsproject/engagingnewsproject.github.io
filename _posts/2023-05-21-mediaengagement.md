@@ -474,6 +474,11 @@ git reset --hard origin/master
 - To view live scss or css changes while developing run `npm run watch`. Ignore the errors for now if it's working.
 - When done developing, `^ + c`, and minify for production `npm run production`. 
 
+### Issues?
+
+- Jetpack Plugin
+
+  - Sometimes the Jetpack / Settings / Composing / Jetpack Blocks setting will cause issues on your local dev environment. To fix that toggle the Jetpack Blocks setting off.
 ## Links
 
 *   [Google Doc installation instructions](https://docs.google.com/document/d/1-ZhREJ0MZ9hsnN-Hc-6bbpFlXq9b91CSfl2DfJ5IpwI/edit?usp=sharing)
