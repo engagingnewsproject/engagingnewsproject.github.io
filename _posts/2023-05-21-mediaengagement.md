@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "CME Website Docs"
+title:  "CME (Engage) Website Docs"
 date:   2023-05-21 09:12:12 -0700
 categories: docs site
 site: https://mediaengagement.org/
@@ -337,15 +337,44 @@ Basically the whole site archive structure is powered by queries set in `src/Man
 To adjust a query, you'll need to add/modify the query in `src/Managers/Permalinks.php` and then re-save the permalinks in Settings->Permalinks.
 
 # Development Setup
+
+Engage is a [Timber](https://timber.github.io/docs/)(Twig) powered WordPress theme for [The Center for Media Engagement](https://mediaengagement.org/) at University of Texas at Austin.
+
+_** Currently this repo includes the whole WordPress installation. This is not reccommended, but helps sync dev, staging & production enviroments. The only directory you should concern yourself with is in the actual `wp-content/themes/engage` directory. All other files are for the live sites and should not be changed._
+
 ## Installation
 
-### The short
+### Installation - Summary
 - Download [WP Engine Local App](http://localwp.com/).
 - Connect with CME WP Engine account.
 - Download mediaengagement.org from the Local App
 - Connect to the GitHub repo & fetch.
 - Install npm
 - Develop
+
+### Local development
+
+**Updated instructions**: Engage v1.2.0 includes Timber v1.0 which is installed via composer as the Timber plugin is no longer supported. Not required, but [view Timber Composer installation instructions here](https://timber.github.io/docs/getting-started/switch-to-composer/).
+
+1. After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
+
+2. The `.nvmrc` ([/wp-content/themes/engage/.nvmrc](https://github.com/engagingnewsproject/enp-platform/blob/master/wp-content/themes/engage/.nvmrc)) file contains the Node version required for the project. In order to enable the version switch on each dev session you need to first run:
+
+       nvm use
+
+    . . . this command will switch your project node version to the version in the `.nvmrc` file. For windows users, checkout [nvm for windows](https://github.com/coreybutler/nvm-windows). Then you can run the commands below:
+
+3. Install packages by running
+
+       npm install
+
+4. To open a browser window with live reloading run:
+
+       npm run watch
+
+5. **IMPORTANT** When you are done, to compile your code & minify for the production server be sure to run:
+
+       npm run production
 
 ### The long
 
