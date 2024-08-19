@@ -17,7 +17,7 @@
 
 Run dev server:
 
-`bundle exec jekyll serve --livereload --port 4001`
+`npm run watch`
 
 This port only serves livereload.js over HTTP
 

@@ -1,0 +1,17 @@
+{
+  "name": "engagingnewsproject.github.io",
+  "version": "1.0.0",
+  "description": "[**CME Documentation**](https://docs.mediaengagement.org/) for all projects built with:",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "watch": "bundle exec jekyll serve --livereload --port 4001"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
