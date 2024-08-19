@@ -6,7 +6,7 @@ categories: docs
 site: https://misinfo-dashboard.netlify.app/
 site_shortname: misinfo-dashboard.netlify.app
 excerpt: Web dashboard for the misinformation application.
-github: https://github.austin.utexas.edu/caet-saga/misinfo-dashboard
+github: https://github.com/engagingnewsproject/misinfo-dashboard
 github_shortname: misinfo-dashboard
 ---
 
