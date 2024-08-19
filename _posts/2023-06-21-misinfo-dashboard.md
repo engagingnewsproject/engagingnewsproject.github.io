@@ -25,6 +25,160 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+# Installation
+Misinfo Dashboard is a Next.js project bootstrapped with create-next-app.
+
+## Getting Started
+
+### 1. Clone repo
+
+First step! Clone this repo into a local directory (ex. `~/username/sites/`) on your machine.
+
+- From the command line in your project root run:
+
+    ```
+    git clone https://github.com/engagingnewsproject/misinfo-dashboard.git
+    ```
+ 
+### 2. Install Packages
+
+#### Node Version
+
+At this time of writing (April 26, 2024) the latest working update is at Node v20.12.2. Ensure this is the version by running `node -v`. If you are not on that Node version check out this article to set the correct Node version: [Easily switch between multiple Node versions without using nvm](https://dev.to/andreasbergstrom/easily-switch-between-multiple-node-versions-without-using-nvm-52k9).
+
+#### Yarn
+Install/update [`yarn`](https://yarnpkg.com/) package manager on your machine ([installation docs](https://yarnpkg.com/getting-started/install))
+  
+- Enable [Corepack](https://yarnpkg.com/corepack), if it isn't already; this will add the `yarn` binary to your PATH:
+
+    ```
+    corepack enable
+    ```
+
+- Set the yarn version by running:
+
+```
+yarn set version 1.22.1
+```
+
+- From the root of the project install dependencies by running:
+        
+    ```
+    yarn install
+    ```
+  
+    > _**Why not `npm install`?** Glad you asked! [Netlify](https://www.netlify.com/), the service that hosts the dashboard, will not allow us to upload updates because `npm install` creates a `package-lock.json` file. Netlify doesn't like `package-lock.json` files._
+
+### 3. Add Firebase configuration
+
+In order to be authenticated with the Firebase Project you must have the `.env` file (which contains the Firebase credentials) at the root of your project. To get the contents of the `.env` file reach out to the project lead (currently [Luke](https://github.com/luukee)).
+
+### 4. Install and run Firebase Emulator
+
+Firebase Emulator is included in the [Firebase Tools](https://www.npmjs.com/package/firebase-tools) package. You can install Firebase Tools by running:
+
+```
+curl -sL firebase.tools | bash
+```
+
+Next, to run the app on the emulator and import the testing db data, in a _new_ terminal tab run: 
+
+```
+firebase emulators:start --import=./emulator-data
+``` 
+
+See [Emulator Tips](https://github.com/engagingnewsproject/misinfo-dashboard?tab=readme-ov-file#emulator-tips) for more info.
+
+### 5. Start dev server
+
+To boot up the development server run:
+
+```
+yarn dev
+# or
+npm run dev
+```
+
+> _If you open `http://localhost:3000` and you see the "unhandled error" `FirebaseError: Failed to get document because the client is offline.` this means you have not started the Firebase Emulator. Return to step #4 to Install and run the Firebase Emulator._
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. If you have the emulator running you will see a banner `Running in emulator mode. Do not use with production credentials.` at the bottom of your screen as well as Console log messages letting you know that the emulator is running:
+
+![emulator-running](https://media.github.austin.utexas.edu/user/3619/files/fa9f1c63-1f3a-4dd2-b0d3-2ca3ab6b86f0)
+
+> NOTE: You will have 2 terminal tabs running while developing:
+- > 1 terminal tab for `yarn dev` (or `npm run dev`), 
+- > 1 terminal tab for `firebase emulators:start --import=./emulator-data`. 
+
+> NOTE: You will also have 2 browser tabs open while developing:
+- > 1 browser tab for `localhost:3000` (actual misinfo dashboard), 
+- > 1 browser tab for "Firebase Emulator Suite" 
+
+Develop away! And good luck :)
+
+## Emulator Tips:
+
+> _If you get `command not found` you might have to be added as a user for the Firebase project. Contact the lead developer to do this for you. Or contact mediaengagement@austin.utexas.edu_
+
+The Firebase Emulator should boot up and provide you an emulator link (look for `View Emulator UI at` in your command line output). 
+
+Open that link to view the Emulator UI:
+
+![emulator-ui](https://media.github.austin.utexas.edu/user/3619/files/1012c2ee-b9b2-4529-8914-2e0455af9bda)
+
+**See Emulator Tips** for more info.
+
+### Add yourself as a user via the "Emulator Authentication" tab. 
+
+#### Two options:
+
+1. Option one: Manually add yourself
+
+   From the Firebase Emulator UI select the "Emulator Authentication" tab and click "Add user". Only required fields are: `name`, `email` and `password`. Change your role? see _Available user roles_ below.
+
+2. Option two: Sign up.
+
+   You can also signup like a normal user at the Login/Signup page. Once you have signed up:
+
+    - Open the link printed out in your Emulator terminal window. 
+      - **_all you need to do is open the link._ Once you've opened the link close the tab and...
+    - Return to your initial Signup tab and login with the credentials you signed up with. Change your role? see _Available user roles_ below.
+
+#### Available user roles:
+
+- *General User:*
+    
+    No additional configuration required.
+    
+- *Agency User:*
+
+    In the "Custom Claims" input enter `{"agency":true}` & save.
+
+- *Admin User:*
+
+    In the "Custom Claims" input enter `{"admin":true}` & save.
+    
+
+#### Emulator UI
+- Database: find the imported database under the Emulator UI / Firestore tab.
+- Users: view, add, edit & delete users under the Authentication tab.
+- Files & Uploads: Storage tab in the Emulator UI.
+
+#### Users
+
+Your user UID that you created will not be associated with any reports or agencies so you can either add reports via the Misinfo Dashboard in your localhost:3000 window or go into the Emulator UI and manually change the `userID` to your own for some reports. Same idea with assigning your user to an agency: go into the Emulator UI and add your email to an agency's `agencyUsers` field.
+
+#### Emulator log files
+
+Emulator creates log files (`firebase-debug.log` & `ui-debug.log`) when you boot up the emulator. No need to push those with git. 
+
+#### Export your local emulator data
+
+The Firebase emulator allows you to export data from your running emulator instance. If you want to stash a baseline set of data, auth profiles you have set up in your running emulator instance.
+
+`firebase emulators:export ./emulator-data`
+
+This command will export the running emulator instance's auth profiles, firestore data and storage files to the `/emulator-data` folder. **Recommended** to not commit the `/emulator-data` changed files as to not alter the baseline Emulator data.
+
 # User Documentation
 
 ## General
@@ -52,38 +206,6 @@ The reports section can be accessed via the home screen of the dashboard, which 
 
 ### Adding a New Report
 To add a new report, you may either select the "Add" icon in the navigation bar, or the "Add new report" icon featured above the reports section. Once you complete the required information and add the report, it will be displayed in the reports section.
-
-# Installation
-Misinfo Dashboard is a Next.js project bootstrapped with create-next-app.
-
-## Getting Started
-Clone the  development GitHub repo to a directory on your local computer.
-```
-git clone https://github.austin.utexas.edu/caet-saga/misinfo-dashboard.git
-```
-## Install Dependencies
-
-```
-npm install
-```
-
-## Run Local Server
-
-1. Start the development server.
-
-    - npm:
-
-		```
-		npm run dev
-		```
-
-    - yarn
-
-		```
-		yarn dev
-		```
-
-2. Visit `http://localhost:3000` to view your application.
 
 ## Tools
 
