@@ -460,13 +460,27 @@ Files    |          |
 `ReportModal.jsx` | 
 `UpdatePwModal.jsx` |
 
-# Deploy on Vercel
+## Firebase Functions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To deploy Firebase functions:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+firebase deploy --only functions
+```
 
-# Usefull Tools
+#### Firebase Creds
+
+With proper permissions access Firebase Console or Firebase Cloud Console.
+
+- Firebase project name: Misinfo
+- Firebase project ID: misinfo-5d004
+- Firebase project #: 2581605663
+
+#### Firebase Storage
+
+- Firebase storage name: misinfo-5d004.appspot.com
+
+# Links
 
 - [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - [VS Code ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
