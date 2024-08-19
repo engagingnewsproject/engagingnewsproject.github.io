@@ -1,3 +1,7 @@
-_site
+_includes/*.html
+_layouts/*.html
+_posts/*.md
+_config.yml
+_site/
 node_modules
 *.min.js
