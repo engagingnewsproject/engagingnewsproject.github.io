@@ -29,18 +29,21 @@ pre {
 		border-bottom: none;
 		padding-top: 0;
 		padding-bottom: 0;
+		margin-bottom: 1rem;
 	}
 	@include media-query($on-large) {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 		border-bottom: 2px solid $border-color-01;
 	}
+	.container {
+		padding: 1rem;
+	}
 }
 
 .masthead-title {
 	text-align: left;
 	&:not(.masthead-title__sidebar) {
-		display: none;
 		@media screen and (max-width: 1000px) {
 			display: block;
 			text-align: center;
