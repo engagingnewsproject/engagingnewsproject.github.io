@@ -19,6 +19,18 @@ Run dev server:
 
 `bundle exec jekyll serve --livereload --port 4001`
 
+This port only serves livereload.js over HTTP
+
+If you open `LiveReload address: http://127.0.0.1:35729` a window with "This port only serves livereload.js over HTTP." is expected behavior. This port is specifically for serving the livereload.js script, which enables live reloading of your site during development. It's not intended to serve your site content.
+
+To view your Jekyll site, you should open `Server address: http://127.0.0.1:4001/` in your browser instead. This is the server address where your site is running.
+
+Overview:
+
+- http://127.0.0.1:35729: This is the port used by the LiveReload script. It's responsible for watching your files and reloading the page automatically when changes are detected. The message you see is normal when accessing this port directly.
+
+- http://127.0.0.1:4001/: This is the port where your actual Jekyll site is being served. This is the address you should use to view and interact with your site.
+
 - `--port` is set in `_congig.yml`
 
 ### Dev server issues
