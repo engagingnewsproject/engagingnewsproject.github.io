@@ -18,19 +18,28 @@
         <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
         <h3 class="masthead-title">
-          <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-          <small>{{ site.tagline }}</small>
-          {% include top_nav.html %}
+          {%- if page.path contains '_posts' -%}
+            <a href="{{ site.baseurl }}/" title="Home">Docs</a> / {{ page.title | escape }}
+          {%- else -%}
+            <a href="{{ site.baseurl }}/" title="Home">Docs</a> / Home
+          {%- endif -%}
+          
+          <!-- <small>{{ site.tagline }}</small> -->
+          <!-- {% include top_nav.html %} -->
         </h3>
       </div>
+      <!-- https://github.com/engagingnewsproject/engagingnewsproject.github.io -->
+       <!-- https://github.com/engagingnewsproject/engagingnewsproject.github.io/edit/main/_posts/2023-03-22-fb-study.md -->
     </div>
-
     <div class="container content">
       {{ content }}
     </div>
   </div>
-
-
+  {%- if page.path contains '_posts' -%}
+  <div class="edit">
+    <a href="https://github.com/engagingnewsproject/engagingnewsproject.github.io/edit/main/{{ page.path }}" target="_blank">Edit this page on GitHub</a>
+  </div>
+  {%- endif -%}
   <script src='{{ site.baseurl }}/assets/js/script.js'></script>
 </body>
 
