@@ -2,7 +2,7 @@
 layout: post
 title:  "Misinfo Dashboard"
 date:   2023-06-21 010:12:12 -0700
-categories: docs
+categories: misinfo-dashboard
 site: https://misinfo-dashboard.netlify.app/
 site_shortname: misinfo-dashboard.netlify.app
 excerpt: Web dashboard for the misinformation application.
@@ -24,20 +24,20 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [GitHub Repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-# Table of Contents
+## Table of Contents
 
-- [Installation](/misinfo-dashboard/installation/)
-- [Firebase Emulator Tips](/misinfo-dashboard/emulator-tips/)
-- [Deploy to Netlify](/misinfo-dashboard/deploy-to-netlify/)
-- [User Documentation](/misinfo-dashboard/user-documentation/)
-- [Tools](/misinfo-dashboard/tools/)
-- [Project Structure](/misinfo-dashboard/project-structure/)
-- [Firebase Setup](/misinfo-dashboard/firebase/)
-- [Dashboard Components](/misinfo-dashboard/dashboard/)
-- [Reports](/misinfo-dashboard/reports/)
-- [Tagging System](/misinfo-dashboard/tagging-system/)
-- [Graphs](/misinfo-dashboard/graphs/)
-- [Components Overview](/misinfo-dashboard/components/)
+- [Installation](misinfo-dashboard/installation.md)
+- [Firebase Emulator Tips](misinfo-dashboard/emulator-tips.md)
+- [Deploy to Netlify](misinfo-dashboard/deploy.md)
+- [User Documentation](misinfo-dashboard/user-documentation.md)
+- [Tools](misinfo-dashboard/tools.md)
+- [Project Structure](misinfo-dashboard/project-structure.md)
+- [Firebase Setup](misinfo-dashboard/firebase.md)
+- [Dashboard Components](misinfo-dashboard/dashboard.md)
+- [Reports](misinfo-dashboard/reports.md)
+- [Tagging System](misinfo-dashboard/tagging-system.md)
+- [Graphs](misinfo-dashboard/graphs.md)
+- [Components Overview](misinfo-dashboard/components.md)
 
 # Links
 
