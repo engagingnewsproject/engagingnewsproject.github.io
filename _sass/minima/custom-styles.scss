@@ -101,6 +101,7 @@ pre {
 }
 .doc-posts-list {
 	list-style: none;
+	margin-left: 0;
 	.sidebar-nav-item {
 		color: $lm-brand-color;
 		padding-left: 2rem;
@@ -108,6 +109,9 @@ pre {
 	background-color: $subtitle-bk-color;
 
 		}
+	}
+	.subpage-list {
+		
 	}
 }
 .sidebar-nav__page-title,
@@ -119,6 +123,12 @@ pre {
 	padding-right: 1.5rem;
 	line-height: 3;
 	margin-bottom: 0;
+	&.home a {
+		color: $lm-brand-color;
+	}
+	.subtitle {
+		font-size: 12px;
+	}
 }
 .sidebar-nav-item {
 	padding-top: 0;
