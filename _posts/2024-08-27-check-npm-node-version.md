@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Check NPM/Node Version"
+date:   2024-08-27 02:12:12 -0700
+categories: docs
+site: 
+site_shortname: 
+excerpt: Node versions.
+github: 
+github_shortname:
+---
+
+### Step 1: Check Node.js and npm Versions
+
+Before setting up the local installation of our WordPress site, it's important to ensure you have the correct versions of Node.js and npm installed.
+
+1. **Open your terminal** (Command Prompt, Git Bash, or any terminal emulator you're comfortable with).
+
+2. **Check the Node.js version**:
+   - Run the following command to check your Node.js version:
+     ```bash
+     node -v
+     ```
+   - You should see an output that looks something like this:
+     ```
+     v14.x.x
+     ```
+   - Ensure that your version is **v14.x.x** or higher. If not, you may need to update Node.js.
+
+3. **Check the npm version**:
+   - Run the following command to check your npm version:
+     ```bash
+     npm -v
+     ```
+   - You should see an output like:
+     ```
+     6.x.x
+     ```
+   - Ensure that your version is **6.x.x** or higher. If not, you may need to update npm.
+
+### Step 2: Updating Node.js and npm (if necessary)
+
+If you need to update Node.js or npm, follow these steps:
+
+1. **For macOS/Linux users**: Use a version manager like [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).
+   - Install nvm if you don't have it installed:
+     ```bash
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+     ```
+   - Install the latest LTS (Long Term Support) version of Node.js:
+     ```bash
+     nvm install --lts
+     ```
+   - Set it as the default version:
+     ```bash
+     nvm use --lts
+     nvm alias default node
+     ```
+
+2. **For Windows users**: Use the [Node.js installer](https://nodejs.org/en/download/) to download and install the latest version. 
+
+3. **Verify the installation**: After updating, run `node -v` and `npm -v` again to ensure the versions are correct.
