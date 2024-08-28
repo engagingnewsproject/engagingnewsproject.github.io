@@ -6,64 +6,63 @@
 <div class="sidebar" id="sidebar">
 
 	<nav class="sidebar-nav">
-		<div class="sidebar-item">
-			<h3 class="masthead-title masthead-title__sidebar">
-				<a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-				<small>{{ site.tagline }}</small>
-			</h3>
-			<!-- {%- if page.path contains 'index' -%}
-			<sub class="sidebar-nav__page-title">Home</sub>
-			{%- else -%}
-			<sub class="sidebar-nav__page-title">{{ page.title }}</sub>
-			{%- endif -%} -->
-		</div>
-		<div class="sidebar-item__main-nav">
-			{% comment %}
-			The code below dynamically generates a sidebar nav of pages with
-			`layout: page` in the front-matter. See readme for usage.
-			{% endcomment %}
+    <div class="sidebar-item">
+      <h3 class="masthead-title masthead-title__sidebar">
+        <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+        <small>{{ site.tagline }}</small>
+      </h3>
+    </div>
+    <div class="sidebar-item__main-nav">
+      <p class="sidebar-nav__toc-title">Main Nav</p>
+      
+      <!-- Main Navigation -->
+      <div class="doc-posts-list">
+        {% assign current_collection = page.collection %}
+        {% assign current_dir = page.dir %}
+        
+        <!-- Show all base pages -->
+        {% for collection in site.collections %}
 
-			{% assign pages_list = site.posts | sort %}
-			<ul class="doc-posts-list">
-				<li class="sidebar-nav__toc-title">
-					<a href="{{site.baseurl}}/">← Docs</a>
-				</li>
-			{% for node in pages_list %}
-			{% if group == null or group == node.group %}
-				{% if page.url == node.url %}
-					<li class="sidebar-nav-item active"><a href="{{node.url}}" class="active">{{node.title}}</a></li>
-				{% else %}
-					<li><a class="sidebar-nav-item" href="{{node.url}}">{{node.title}}</a></li>
-				{% endif %}
-			{% endif %}
-			{% endfor %}
-			{% assign pages_list = nil %}
-			{% assign group = nil %}
-			
-			{% assign pages_list = site.pages | sort:"url" %}
-			{% for node in pages_list %}
-				{% if node.title != null %}
-					{% if node.layout == "page" %}
-						<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
-							href="{{ node.url | absolute_url }}">{{
-							node.title }}</a>
-					{% endif %}
-				{% endif %}
-			{% endfor %}
-			</ul>
-			
-
-		</div>
-		{%- if page.path contains '_posts' -%}
-		<div id="table-of-contents" class="sidebar-nav__toc">
-			<p class="sidebar-nav__toc-title">{{ page.title | escape }}
-			<span class="subtitle">Table of contents</span>
-		</p>
-
-			{% toc %}
-		</div>
-		{%- endif -%}
-	</nav>
+        {% if collection.label != 'posts' && page.url == doc.url %}
+          {% for doc in collection.docs %}
+            {% if doc.path contains 'index.md' %}
+              <li class="sidebar-nav-item{% if page.url == doc.url %} active{% endif %}">
+                <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+              </li>
+            {% else %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+        
+      <!-- Show subpages only if on a base page or subpage -->
+      {% if current_dir and current_dir != '/' %}
+      <ul class="subpage-list">
+        {% assign parent_dir = current_dir | remove: '/' %}
+        {% for subpage in site.docs %}
+          {% if subpage.dir contains parent_dir %}
+            <li class="sidebar-nav-item{% if page.url == subpage.url %} active{% endif %}">
+              <a href="{{ subpage.url | relative_url }}">{{ subpage.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+      
+      </div>
+    </div>
+    
+    {% if page.path contains '_docs' %}
+    <div id="table-of-contents" class="sidebar-nav__toc">
+      <p class="sidebar-nav__toc-title">TABLE OF CONTENTS</p>
+      {% toc %}
+    </div>
+    {% endif %}
+  </nav>
+  
+	<pre>
+		<span>{{ current_collection }}</span>
+	</pre>
 
 	<div class="sidebar-item sidebar-item__footer">
 		<sub>

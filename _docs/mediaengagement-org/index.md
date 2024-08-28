@@ -1,8 +1,8 @@
 ---
-layout: post
-title:  "CME (Engage) Website Docs"
+layout: docs
+title:  "mediaengagement.org"
 date:   2023-05-21 09:12:12 -0700
-categories: docs site
+categories: mediaengagement-org
 site: https://mediaengagement.org/
 site_shortname: mediaengagement.org
 excerpt: The core platform for the CME public facing website and peripheral solutions.

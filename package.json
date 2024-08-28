@@ -6,7 +6,7 @@
   "scripts": {
     "format": "prettier --write .",
     "check-format": "prettier --check .",
-    "watch": "bundle exec jekyll serve --livereload --port 4001"
+    "watch": "bundle exec jekyll serve --livereload --port 4002"
   },
   "keywords": [],
   "author": "",

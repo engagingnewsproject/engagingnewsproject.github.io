@@ -1,7 +1,6 @@
 ---
-layout: post
+layout: docs
 title: "Installation"
-categories: docs
 ---
 
 # Installation
