@@ -28,25 +28,123 @@ When it comes to the code, you'll be working under the engage directory `~/Local
 
 It might be a little overwhelming at first, but after a couple of weeks, things will begin to make sense. You'll be on your way to making big changes in no time. Don't hesitate to ask for help from each other if you get stuck. Welcome to the CME team!
 
-#### SSH commands
+## Installation
 
-Connect to site
+### 1. Install Local App
 
-`$ ssh -i ~/.ssh/wpengine_rsa -o IdentitiesOnly=yes environment@environment.ssh.wpengine.net`
+   Download and install [WP Engine Local App](http://localwp.com/)
 
-_replace_ `environment` _with site name._
+### 2. Import .zip
 
-Activate default WP theme:
+- Request the lead dev to export a "slimmer" version of the site. This will be a .zip file you can import into your Local App.
 
-`wp theme activate twentytwentyone --skip-themes`
+- In the Local App click the plus (+) icon in the bottom left
 
-Get directory sizes:
+- Click "Select an existing ZIP" and upload the .zip sent from the lead dev.
+    
+- Next step click "Custom" and choose PHP version: 8.2.10 or higher, Web server: nginx and Database: 8.0.16 or higher
+    
+- Next step it will import. When it is done you can click the "WP Admin" button to open the WordPress Dashboard. Temporary login:
+  - Username: adminDev
+  - Password: adminDev
 
-`$ du -h --max-depth 1` 
+After you log in you should add yourself as an Administrator user in Users/ Add new.
 
-or to sort
+### 3. Set proxy URL in `webpack.mix.js`
 
-`$ du -h --max-depth 1|sort -h`
+Each developer may have a different local development URL, you can use a configuration file that each developer can customize without affecting the shared codebase.
+
+Create a `config.json` file in the root of your theme (ex.`/themes/engage-2-x/config.json`)with these contents:
+
+```json
+{
+  "proxy": "http://localhost:10000"
+}
+```
+
+Replace `localhost:10000` with the local URL in the Local App / Overview / Site host.
+
+### 4. Proxy Requests for `/wp-content/uploads/` to the Production Site
+
+This will save you storage on your machine because all images will be fetched from the live site.
+
+1. Create a file named `uploads-proxy.conf` in the `siteRoot/conf/nginx` directory with these contents:
+       
+   ```
+   location ~ ^/wp-content/uploads/(.*) {
+   if (!-e $request_filename) {
+     rewrite ^/wp-content/uploads/(.*) https://mediaengagement.org/wp-content/uploads/$1 redirect;
+     }
+   }
+   ```
+   
+2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the `{{/unless}}` line in the `# WordPress Rules`:
+    
+   ```
+   include uploads-proxy.conf;
+   ```
+    
+3. Save and restart the site in the Local App.
+
+## Syncing with GitHub
+
+You will first have to contact the lead dev to add you to the Center for Media Engagement GitHub organization. 
+
+- In terminal navigate into ~/Local Sites/mediaengagementorg/app/public and enter the following commands
+
+```bash
+git init
+```
+```bash
+git remote add origin https://github.com/engagingnewsproject/enp-platform.git
+```
+
+- If you are re-adding the origin and get a `Remote origin already exists` error run:
+
+```bash
+git remote set-url origin https://github.com/engagingnewsproject/enp-platform.git
+```
+
+- And then fetch from origin:
+
+```bash
+git fetch --all
+```
+```bash
+git reset --hard origin/master
+```
+
+- At this point your directory should now be connected with our repo and up to date with master.
+
+## Local development
+
+After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
+
+2. The `.nvmrc` file contains the Node version required for the project. In order to enable the version switch on each dev session you need to first run:
+
+```bash
+nvm use
+```
+
+This command will switch your project node version to the version in the `.nvmrc` file. For windows users, checkout [nvm for windows](https://github.com/coreybutler/nvm-windows). Then you can run the commands below:
+
+3. Install packages by running
+
+```bash
+npm install
+```
+
+4. To open a browser window with live reloading run:
+
+```bash
+npm run watch
+```
+
+5. **IMPORTANT** When you're development session is done, to compile your code & minify for the production server make sure you run:
+
+```bash
+npm run production
+```
 
 # Coding
 
@@ -335,130 +433,6 @@ Once you are done on your local dev site, you will need to export your new ACF's
 Basically the whole site archive structure is powered by queries set in `src/Managers/Permalinks.php`. We've overridden the default queries so we can set our own queries with the verticals added in. There may be a better way to do this, but this way at least gets us a very specific way of modifying the query based on a pretty URL.
 
 To adjust a query, you'll need to add/modify the query in `src/Managers/Permalinks.php` and then re-save the permalinks in Settings->Permalinks.
-
-# Development Setup
-
-Engage is a [Timber](https://timber.github.io/docs/)(Twig) powered WordPress theme for [The Center for Media Engagement](https://mediaengagement.org/) at University of Texas at Austin.
-
-_** Currently this repo includes the whole WordPress installation. This is not reccommended, but helps sync dev, staging & production enviroments. The only directory you should concern yourself with is in the actual `wp-content/themes/engage` directory. All other files are for the live sites and should not be changed._
-
-## Installation
-
-### 1. Install Local App
-
-   Download and install [WP Engine Local App](http://localwp.com/)
-
-### 2. Import .zip
-
-- Request the lead dev to export a "slimmer" version of the site. This will be a .zip file you can import into your Local App.
-
-- In the Local App click the plus (+) icon in the bottom left
-
-- Click "Select an existing ZIP" and upload the .zip sent from the lead dev.
-    
-- Next step click "Custom" and choose PHP version: 8.2.10 or higher, Web server: nginx and Database: 8.0.16 or higher
-    
-- Next step it will import. When it is done you can click the "WP Admin" button to open the WordPress Dashboard. Temporary login:
-  - Username: adminDev
-  - Password: adminDev
-
-After you log in you should add yourself as an Administrator user in Users/ Add new.
-
-### 3. Set proxy URL in `webpack.mix.js`
-
-Each developer may have a different local development URL, you can use a configuration file that each developer can customize without affecting the shared codebase.
-
-Create a `config.json` file in the root of your theme (ex.`/themes/engage-2-x/config.json`)with these contents:
-
-```json
-{
-  "proxy": "http://localhost:10000"
-}
-```
-
-Replace `localhost:10000` with the local URL in the Local App / Overview / Site host.
-
-### 4. Proxy Requests for `/wp-content/uploads/` to the Production Site
-
-This will save you storage on your machine because all images will be fetched from the live site.
-
-1. Create a file named `uploads-proxy.conf` in the `siteRoot/conf/nginx` directory with these contents:
-       
-   ```
-   location ~ ^/wp-content/uploads/(.*) {
-   if (!-e $request_filename) {
-     rewrite ^/wp-content/uploads/(.*) https://mediaengagement.org/wp-content/uploads/$1 redirect;
-     }
-   }
-   ```
-   
-2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the `{{/unless}}` line in the `# WordPress Rules`:
-    
-   ```
-   include uploads-proxy.conf;
-   ```
-    
-3. Save and restart the site in the Local App.
-
-## Syncing with GitHub
-
-You will first have to contact the lead dev to add you to the Center for Media Engagement GitHub organization. 
-
-- In terminal navigate into ~/Local Sites/mediaengagementorg/app/public and enter the following commands
-
-```bash
-git init
-```
-```bash
-git remote add origin https://github.com/engagingnewsproject/enp-platform.git
-```
-
-- If you are re-adding the origin and get a `Remote origin already exists` error run:
-
-```bash
-git remote set-url origin https://github.com/engagingnewsproject/enp-platform.git
-```
-
-- And then fetch from origin:
-
-```bash
-git fetch --all
-```
-```bash
-git reset --hard origin/master
-```
-
-- At this point your directory should now be connected with our repo and up to date with master.
-
-## Local development
-
-After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
-
-2. The `.nvmrc` file contains the Node version required for the project. In order to enable the version switch on each dev session you need to first run:
-
-```bash
-nvm use
-```
-
-This command will switch your project node version to the version in the `.nvmrc` file. For windows users, checkout [nvm for windows](https://github.com/coreybutler/nvm-windows). Then you can run the commands below:
-
-3. Install packages by running
-
-```bash
-npm install
-```
-
-4. To open a browser window with live reloading run:
-
-```bash
-npm run watch
-```
-
-5. **IMPORTANT** When you're development session is done, to compile your code & minify for the production server make sure you run:
-
-```bash
-npm run production
-```
 
 ## Git usage
 
@@ -1046,3 +1020,24 @@ Important links:
 _ongoing little tid-bits of valuable info for Verticals, Categories & Tags_
 
 [Media Ethics vertical page](https://mediaengagement.org/vertical/media-ethics/) tiles show up only if you have uploaded a "Category Featured Image" in the `Research/Research Category/[category name]` menu area.
+
+
+# SSH commands
+
+Connect to site
+
+`$ ssh -i ~/.ssh/wpengine_rsa -o IdentitiesOnly=yes environment@environment.ssh.wpengine.net`
+
+_replace_ `environment` _with site name._
+
+Activate default WP theme:
+
+`wp theme activate twentytwentyone --skip-themes`
+
+Get directory sizes:
+
+`$ du -h --max-depth 1` 
+
+or to sort
+
+`$ du -h --max-depth 1|sort -h`
