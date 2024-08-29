@@ -344,94 +344,95 @@ _** Currently this repo includes the whole WordPress installation. This is not r
 
 ## Installation
 
-1. **Install Local App**
+### 1. Install Local App
 
    Download and install [WP Engine Local App](http://localwp.com/)
 
-2. **Import .zip**
+### 2. Import .zip
 
-    - Request the lead dev to export a "slimmer" version of the site. This will be a .zip file you can import into your Local App.
+- Request the lead dev to export a "slimmer" version of the site. This will be a .zip file you can import into your Local App.
 
-    - In the Local App click the plus (+) icon in the bottom left
+- In the Local App click the plus (+) icon in the bottom left
 
-    - Click "Select an existing ZIP" and upload the .zip sent from the lead dev.
+- Click "Select an existing ZIP" and upload the .zip sent from the lead dev.
     
-    - Next step click "Custom" and choose PHP version: 8.2.10 or higher, Web server: nginx and Database: 8.0.16 or higher
+- Next step click "Custom" and choose PHP version: 8.2.10 or higher, Web server: nginx and Database: 8.0.16 or higher
     
-    - Next step it will import. When it is done you can click the "WP Admin" button to open the WordPress Dashboard. Temporary login:
-	    - Username: adminDev
-	    - Password: adminDev
+- Next step it will import. When it is done you can click the "WP Admin" button to open the WordPress Dashboard. Temporary login:
+  - Username: adminDev
+  - Password: adminDev
 
 After you log in you should add yourself as an Administrator user in Users/ Add new.
 
-3. **Set proxy URL in `webpack.mix.js`** 
+### 3. Set proxy URL in `webpack.mix.js`
 
-    Each developer may have a different local development URL, you can use a configuration file that each developer can customize without affecting the shared codebase.
+Each developer may have a different local development URL, you can use a configuration file that each developer can customize without affecting the shared codebase.
 
-    - Create a `config.json` file in the root of your theme (ex.`/themes/engage-2-x/config.json`)with these contents:
+Create a `config.json` file in the root of your theme (ex.`/themes/engage-2-x/config.json`)with these contents:
 
-      ```json
-      {
-        "proxy": "http://localhost:10000"
-      }
-      ```
+```json
+{
+  "proxy": "http://localhost:10000"
+}
+```
 
-      Replace `localhost:10000` with the local URL in the Local App / Overview / Site host.
+Replace `localhost:10000` with the local URL in the Local App / Overview / Site host.
 
-4. **Proxy Requests for /wp-content/uploads/ to the Production Site**
+### 4. Proxy Requests for `/wp-content/uploads/` to the Production Site
 
-    This will save you storage on your machine because all images will be fetched from the live site.
+This will save you storage on your machine because all images will be fetched from the live site.
 
-    1. Create a file named `uploads-proxy.conf` in the `siteRoot/conf/nginx` directory with these contents:
-       ```
-       location ~ ^/wp-content/uploads/(.*) {
-       if (!-e $request_filename) {
-         rewrite ^/wp-content/uploads/(.*) https://mediaengagement.org/wp-content/uploads/$1 redirect;
-         }
-       }
-       ```
-    2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the `{{/unless}}` line in the `# WordPress Rules`:
+1. Create a file named `uploads-proxy.conf` in the `siteRoot/conf/nginx` directory with these contents:
+       
+   ```
+   location ~ ^/wp-content/uploads/(.*) {
+   if (!-e $request_filename) {
+     rewrite ^/wp-content/uploads/(.*) https://mediaengagement.org/wp-content/uploads/$1 redirect;
+     }
+   }
+   ```
+   
+2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the `{{/unless}}` line in the `# WordPress Rules`:
     
-       ```
-       include uploads-proxy.conf;
-       ```
+   ```
+   include uploads-proxy.conf;
+   ```
     
-    3. Save and restart the site in the Local App.
+3. Save and restart the site in the Local App.
 
 ## Syncing with GitHub
 
-- cd into ~/Local Sites/mediaengagementorg/app/public and enter the following commands
+You will first have to contact the lead dev to add you to the Center for Media Engagement GitHub organization. 
 
-```
+- In terminal navigate into ~/Local Sites/mediaengagementorg/app/public and enter the following commands
 
+```bash
 git init
-
+```
+```bash
 git remote add origin https://github.com/engagingnewsproject/enp-platform.git
-
 ```
 
 - If you are re-adding the origin and get a `Remote origin already exists` error run:
 
-```
-
+```bash
 git remote set-url origin https://github.com/engagingnewsproject/enp-platform.git
-
 ```
 
 - And then fetch from origin:
 
-```
-
+```bash
 git fetch --all
-
+```
+```bash
 git reset --hard origin/master
-
 ```
 
 - At this point your directory should now be connected with our repo and up to date with master.
+
 ## Local development
 
-  After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
+After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
 
 2. The `.nvmrc` file contains the Node version required for the project. In order to enable the version switch on each dev session you need to first run:
 
@@ -439,7 +440,7 @@ git reset --hard origin/master
 nvm use
 ```
 
-. . . this command will switch your project node version to the version in the `.nvmrc` file. For windows users, checkout [nvm for windows](https://github.com/coreybutler/nvm-windows). Then you can run the commands below:
+This command will switch your project node version to the version in the `.nvmrc` file. For windows users, checkout [nvm for windows](https://github.com/coreybutler/nvm-windows). Then you can run the commands below:
 
 3. Install packages by running
 
@@ -447,14 +448,13 @@ nvm use
 npm install
 ```
 
-
 4. To open a browser window with live reloading run:
 
 ```bash
 npm run watch
 ```
 
-5. **IMPORTANT** When you are done, to compile your code & minify for the production server be sure to run:
+5. **IMPORTANT** When you're development session is done, to compile your code & minify for the production server make sure you run:
 
 ```bash
 npm run production
