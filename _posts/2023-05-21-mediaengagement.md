@@ -28,7 +28,7 @@ When it comes to the code, you'll be working under the engage directory `~/Local
 
 It might be a little overwhelming at first, but after a couple of weeks, things will begin to make sense. You'll be on your way to making big changes in no time. Don't hesitate to ask for help from each other if you get stuck. Welcome to the CME team!
 
-## Installation
+# Installation
 
 ### 1. Install Local App
 
@@ -116,7 +116,7 @@ git reset --hard origin/master
 
 - At this point your directory should now be connected with our repo and up to date with master.
 
-## Local development
+# Local development
 
 After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
 
