@@ -1041,3 +1041,208 @@ Get directory sizes:
 or to sort
 
 `$ du -h --max-depth 1|sort -h`
+
+# DB Commands
+
+**Export DB excluding heavy tables**
+
+If exporting from the live site or a pulled version of the live site, its best to use this exclude export.
+
+`wp db export --exclude_tables=wp_comments,wp_commentmeta,wp_enp_ab_test,wp_enp_embed_quiz,wp_enp_embed_site,wp_enp_embed_site_br_site_type,wp_enp_embed_site_type,wp_enp_question,wp_enp_question_mc_option,wp_enp_question_slider,wp_enp_quiz,wp_enp_quiz_option,wp_enp_response_ab_test,wp_enp_response_mc,wp_enp_response_question,wp_enp_response_quiz,wp_enp_response_slider,wp_rank_math_404_logs,wp_rank_math_analytics_ga,wp_rank_math_analytics_gsc,wp_rank_math_analytics_ga,wp_rank_math_analytics_inspections,wp_rank_math_analytics_keyword_manager,wp_rank_math_analytics_objects,wp_rank_math_internal_links,wp_rank_math_internal_meta,wp_rank_math_redirections,wp_rank_math_redirections_cache, --skip-plugins --skip-themes local.sql`
+
+- Exports the db skipping plugins and themes. Also excluding:
+	- wp_comments
+	- wp_commentsmeta
+	- all quiz tables (`wp_enp_`)
+	- all rank math tables (`wp_rank_`)
+
+**Import DB**
+
+`wp db import local.sql`
+
+**Backup DB**
+
+`wp db export backup.sql`
+
+**Drop all tables**
+
+`wp db reset --yes`
+
+- `reset`: Drop all the tables in the database but does not delete the database itself. It effectively clears out the database, allowing you to start fresh.
+- **`--yes`**: This flag automatically confirms the action without prompting you to type "yes" interactively.
+
+**Search and Replace URLs**:
+
+- After importing, you may need to update any references to the live site's URL in your database to match your local environment. You can do this using the `wp search-replace` command:
+
+  `wp search-replace 'https://oldurl.com' 'http://newurl.local' --skip-columns=guid`
+
+**Flush Permalinks**:
+
+- After importing and running the search-replace, flush your permalinks to ensure everything is working correctly:
+
+  `wp rewrite flush`
+
+
+### Optimize All Database Tables with WP-CLI
+
+To optimize all tables in your database, run the following command:
+
+```bash
+wp db optimize
+```
+
+This command will optimize all the tables in your WordPress database, including `wp_posts`, `wp_postmeta`, `wp_usermeta`, `wp_options`, and any other tables present in the database.
+
+### Optimize Specific Tables (Optional)
+
+If you want to optimize specific tables only, you can do so by running a SQL query through WP-CLI:
+
+```bash
+wp db query "OPTIMIZE TABLE wp_posts, wp_postmeta, wp_usermeta, wp_options;"
+```
+
+# Troubleshooting
+
+## Valet
+
+If you're using the Local App by Flywheel and do not want Laravel Valet to take up ports that could interfere with your local development, you can stop or uninstall Valet to free up those ports. Here's how you can manage that:
+
+### Step 1: Stop Valet from Running
+To stop Valet from managing services and taking up ports, you can run:
+
+```bash
+valet stop
+```
+
+This command stops Valet's services, which should free up any ports it was using.
+
+### Step 2: Uninstall Valet (Optional)
+If you no longer need Laravel Valet and want to remove it entirely to avoid conflicts, you can uninstall it:
+
+```bash
+valet uninstall
+```
+
+This command removes Valet and its associated services from your system.
+
+### Step 3: Check for Any Remaining Processes
+After stopping or uninstalling Valet, make sure there are no remaining processes occupying the ports you need:
+
+1. **List Processes Using a Specific Port:**
+   ```bash
+   lsof -i :3000
+   ```
+   Replace `3000` with the port number in question.
+
+2. **Kill Any Remaining Processes:**
+   ```bash
+   kill -9 <PID>
+   ```
+   Replace `<PID>` with the actual Process ID from the output.
+
+### Step 4: Restart Local App by Flywheel
+To ensure that Local by Flywheel is managing the ports and services correctly, restart the Local app:
+
+1. Close the Local app completely.
+2. Reopen the Local app and start your site.
+
+### Summary
+By stopping or uninstalling Laravel Valet, you can ensure it doesn't interfere with your ports when using the Local App by Flywheel. This will allow Local to manage your local development environment without conflicts.
+
+# WP_CLI
+
+## Update all outdated plugins
+
+### Step 1: Check for Outdated Plugins
+To see which plugins are outdated, you can run the following command:
+
+```bash
+wp plugin list --update=available
+```
+
+This command will list all plugins that have updates available.
+
+### Step 2: Update All Outdated Plugins
+To update all plugins that have updates available, use the following command:
+
+```bash
+wp plugin update --all
+```
+
+### Step 3: Confirm the Updates
+After running the update command, you can confirm that all plugins are up to date by running:
+
+```bash
+wp plugin list
+```
+
+This command will show you the current status of all plugins.
+
+### Summary:
+- **List Outdated Plugins:** `wp plugin list --update=available`
+- **Update All Plugins:** `wp plugin update --all`
+- **Confirm Updates:** `wp plugin list`
+
+These commands will help you efficiently manage and update all your WordPress plugins via WP-CLI.
+
+
+## Update WordPress core
+
+### Step 1: Check for WordPress Updates
+First, check if an update is available for WordPress:
+
+```bash
+wp core check-update
+```
+
+This command will display the available versions if an update is available.
+
+### Step 2: Update WordPress Core
+If an update is available, you can update WordPress to the latest version with the following command:
+
+```bash
+wp core update
+```
+
+### Step 3: Update the WordPress Database (if needed)
+After updating WordPress, it’s a good idea to update the database in case any database changes were introduced with the new version:
+
+```bash
+wp core update-db
+```
+
+This command will apply any necessary database updates.
+
+### Step 4: Verify the Update
+To confirm that WordPress has been successfully updated, you can check the current version:
+
+```bash
+wp core version
+```
+
+### Summary:
+- **Check for Updates:** `wp core check-update`
+- **Update WordPress:** `wp core update`
+- **Update Database:** `wp core update-db`
+- **Verify Update:** `wp core version`
+
+These commands will help you keep your WordPress installation up to date via WP-CLI.
+
+### Optimize All Database Tables with WP-CLI
+
+To optimize all tables in your database, run the following command:
+
+```bash
+wp db optimize
+```
+
+This command will optimize all the tables in your WordPress database, including `wp_posts`, `wp_postmeta`, `wp_usermeta`, `wp_options`, and any other tables present in the database.
+
+### Optimize Specific Tables (Optional)
+
+If you want to optimize specific tables only, you can do so by running a SQL query through WP-CLI:
+
+```bash
+wp db query "OPTIMIZE TABLE wp_posts, wp_postmeta, wp_usermeta, wp_options;"
+```
