@@ -37,7 +37,9 @@ It might be a little overwhelming at first, but after a couple of weeks, things 
 
 ### 2. Import .zip
 
-- Request the lead dev to export a "slimmer" version of the site. This will be a .zip file you can import into your Local App.
+> Windows users need to run the Local app as an administrator. Right-click on the Local app icon and select "Run as administrator" to open the app.
+
+- Request the lead dev to [export a "slimmer" version](#export-from-local-app) of the site. This will be a .zip file you can import into your Local App.
 
 - In the Local App click the plus (+) icon in the bottom left
 
@@ -65,7 +67,7 @@ Create a `config.json` file in the root of your theme (ex.`/themes/engage-2-x/co
 
 Replace `localhost:10000` with the local URL in the Local App / Overview / Site host.
 
-### 4. Proxy Requests for `/wp-content/uploads/` to the Production Site
+### 4. Proxy Image Requests
 
 This will save you storage on your machine because all images will be fetched from the live site.
 
@@ -79,7 +81,7 @@ This will save you storage on your machine because all images will be fetched fr
    }
    ```
    
-2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the `{{/unless}}` line in the `# WordPress Rules`:
+2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the "{{/unless}}" line in the `# WordPress Rules`:
     
    ```
    include uploads-proxy.conf;
@@ -1247,3 +1249,24 @@ If you want to optimize specific tables only, you can do so by running a SQL que
 ```bash
 wp db query "OPTIMIZE TABLE wp_posts, wp_postmeta, wp_usermeta, wp_options;"
 ```
+
+## Get WordPress Info
+
+WP Sidebar > Site Health > Info Tab
+
+# Lead Notes
+
+## Export from Local App
+
+To export a slimmer version of the site you first need to export your main site and import is into Local as a new site. This new site is the site you will remove files from to "slim" it down. Then you can export the new site and send the zip to the new undergrads.
+
+**Delete these files & folders**
+
+Before you export the new duplicate local site you need to delete these:
+
+- siteRoot/app/public/.git
+- siteRoot/app/public/wp-content/themes/engage-2-x/node_modules
+- any vs code *.code-workspace files
+- all .* files in siteRoot/app/public/
+- siteRoot/app/public/enp-quiz-database-config.php
+- siteRoot/app/public/LocalValetDriver.php
