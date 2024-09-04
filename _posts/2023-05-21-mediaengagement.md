@@ -22,7 +22,7 @@ github_shortname: engagingnewsproject/enp-platform
 
 If you haven't worked with WordPress before, I encourage you to traverse the admin panel on your local site. Break some things, fix them, change some posts, do anything you think will help you gain familiarity. If something breaks on your local, you can always `git reset --hard origin/master` to get back to a working version at the cost of losing your changes. So create new branches and commit often. 
 
-When it comes to the code, you'll be working under the engage directory `~/Local Sites/mediaengagementorg/app/public/wp-content/themes/engage`. It will take some time to get used to the structure and knowing where in the code you need to access for your project. To help get you going in the right direction, if the change you're making is to the front-end you'll want to look inside the templates folder and scss under assets. Backend logic and querying happen inside of PHP files, the src folder has a lot of it, but there are some lose PHP files out and about. 
+When it comes to the code, you'll be working under the engage-2-x directory `~/Local Sites/mediaengagementorg/app/public/wp-content/themes/engage-2-x`. It will take some time to get used to the structure and knowing where in the code you need to access for your project. To help get you going in the right direction, if the change you're making is to the front-end you'll want to look inside the templates folder and SCSS under assets. Backend logic and querying happen inside of PHP files, the src folder has a lot of it, but there are some lose PHP files out and about. 
 
 - [Theme Structure](/mediaengagement/#theme-structure).
 
@@ -118,7 +118,7 @@ git reset --hard origin/master
 
 # Local development
 
-After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage`
+After cloning this repo, run these commands from the Engage theme directory: `[local app site directory]/app/public/wp-content/themes/engage-2-x`
 
 2. The `.nvmrc` file contains the Node version required for the project. In order to enable the version switch on each dev session you need to first run:
 
@@ -251,8 +251,8 @@ This helps keep specificity low and helps you organize your code. Google it to f
 
 Engage CSS is compiled with [SCSS](https://sass-lang.com/). 
 
-- When you start up your dev environment with `npm run watch` changes to SCSS files located in the `assets/scss` directory are compiled (via the `assets/scss/app.scss` file) to `engage/dist/css/app.css`. 
-- When running `npm run production` at the end of your development session `engage/dist/css/app.css` is minified for the production environment. 
+- When you start up your dev environment with `npm run watch` changes to SCSS files located in the `assets/scss` directory are compiled (via the `assets/scss/app.scss` file) to `engage-2-x/dist/css/app.css`. 
+- When running `npm run production` at the end of your development session `engage-2-x/dist/css/app.css` is minified for the production environment. 
 
 ##### SCSS Workflow
 
@@ -875,7 +875,7 @@ _** Be sure to replace your_email@example.com with your own email address_
     ssh -v git@git.wpengine.com info
     ```
 
-13. cd into your local website directory `~/app/public/wp-content/themes/engage`
+13. cd into your local website directory `~/app/public/wp-content/themes/engage-2-x`
 
 14. To add production run:
 
