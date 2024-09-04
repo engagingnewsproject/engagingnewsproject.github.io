@@ -62,7 +62,37 @@ Welcome to the CME (Engage) Website documentation. This guide covers everything 
   ```
   
 ### Step 4: Proxy Requests for `/wp-content/uploads/`
-- Set up a proxy to save local storage by fetching images from the live site. 
+- Set up a proxy to save storage on you local machine by fetching images from the live/production site. If this step is not completed your local site willnot show any images.
+
+  <details>
+  <summary><strong>How to configure the proxy</strong></summary>
+
+    <ol>
+      <li>
+      <p>Create a file named <code>uploads-proxy.conf</code> in the <code>siteRoot/conf/nginx</code> directory with this content:</p>
+      <pre class="highlight"><code>
+location ~ ^/wp-content/uploads/(.*) {
+    if (!-e $request_filename) {
+        rewrite ^/wp-content/uploads/(.*) https://mediaengagement.org/wp-content/uploads/$1 redirect;
+    }
+}
+      </code></pre>
+      </li>
+      
+      <li>
+      <p>Open <code>siteRoot/conf/nginx/site.conf.hbs</code> in your editor and add the below snippet below the <code>{{</code><code>/unless}}</code> line in the `# WordPress Rules`:</p>
+          
+      <pre class="highlight"><code>
+  include uploads-proxy.conf;
+      </code></pre>
+        
+      <p>Your updated <code>site.conf.hbs</code> hould look like this screenshot:</p>
+      <img src="../assets/img/site.conf.hbs-proxy.png" alt="Proxy Configuration Example" style="max-width: 100%; height: auto;">
+      </li>
+        
+      <li>Save and restart the site in the Local App.</li>
+    </ol>
+	</details>
 
 ### Step 5: Sync with GitHub
 - Initialize the repository and set the remote origin:
