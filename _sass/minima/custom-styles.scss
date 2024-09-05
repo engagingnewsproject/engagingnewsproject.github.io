@@ -1,8 +1,8 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
-@import "minima/poole";
-@import "minima/syntax";
-@import "minima/lanyon";
+@import 'minima/poole';
+@import 'minima/syntax';
+@import 'minima/lanyon';
 
 /* Black Theme */
 body {
@@ -21,7 +21,10 @@ body {
 	color: $link-base-color;
 }
 .sidebar-toggle {
+	top: 1rem;
 	left: 10px;
+	z-index: 9;
+	position: fixed;
 }
 pre {
 	background-color: $border-color-02;
@@ -48,22 +51,30 @@ pre {
 		display: flex;
 		border-bottom: 2px solid $border-color-01;
 	}
-
-	@media screen and (min-width: 1000px) {
-			.container {
-			padding: 1rem;
+	.container {
+		padding: 0.25rem 1rem 0.25rem 4rem;
+		margin-left: 0;
+	}
+	@media (min-width: 38em) {
+		.container {
+			padding: 0.25rem 1rem 0.25rem 4rem;
+		}
+	}
+	@media (min-width: 56em) {
+		.container {
+			padding: 1rem 1rem 1rem 3rem;
 		}
 	}
 }
 .edit {
 	display: none;
-@media screen and (min-width: 1000px) {
-	position: absolute;
-	display: block;
+	@media screen and (min-width: 1000px) {
+		position: absolute;
+		display: block;
 		right: 0;
 		top: 0;
-	padding: 1rem;
-}
+		padding: 1rem;
+	}
 }
 .masthead-title {
 	text-align: left;
@@ -76,13 +87,45 @@ pre {
 }
 
 .container {
-	margin-left: 2rem;
-
 	&.content {
 		@include media-query($on-medium) {
 			margin-top: 6rem;
 			margin-left: auto;
 		}
+	}
+}
+.content {
+	&.container {
+		max-width: unset;
+		// max-width: 28rem;
+	}
+	@media (min-width: 38em) {
+		&.container {
+			max-width: unset;
+			margin-left: 4rem;
+
+		}
+	}
+	@media (min-width: 56em) {
+		&.container {
+			max-width: unset;
+		}
+	}
+}
+.post-content > *:not(.highlighter-rouge) {
+	max-width: 28rem;
+}
+@media (min-width: 38em) {
+	.post-content > *:not(.highlighter-rouge) {
+		max-width: 32rem;
+	}
+}
+@media (min-width: 56em) {
+	.post-content > *:not(.highlighter-rouge) {
+		max-width: 34rem;
+	}
+	.post-content .highlighter-rouge {
+		max-width: 48rem;
 	}
 }
 /* Blog post or page title */
@@ -104,9 +147,8 @@ pre {
 	.sidebar-nav-item {
 		color: $lm-brand-color;
 		padding-left: 2rem;
-			&.active {
-	background-color: $subtitle-bk-color;
-
+		&.active {
+			background-color: $subtitle-bk-color;
 		}
 	}
 }
@@ -143,7 +185,6 @@ span.sidebar-nav-item {
 		transform: unset;
 	}
 }
-
 
 ul {
 	&.inline {

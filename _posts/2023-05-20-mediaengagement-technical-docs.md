@@ -525,15 +525,23 @@ After your code is reviewed:
    </td>
    <td>master
    </td>
-   <td>Accepts merges from Features/Issues and Hotfixes
+   <td>Accepts merges from Features/Issues, Bugs and Hotfixes
    </td>
   </tr>
   <tr>
    <td>Features/Issues
    </td>
-   <td>topic-*
+   <td>feature-*
    </td>
    <td>Always branch off HEAD of Working
+   </td>
+  </tr>
+  <tr>
+   <td>Bug
+   </td>
+   <td>bug-*
+   </td>
+   <td>Always branch off Working
    </td>
   </tr>
   <tr>
@@ -625,25 +633,25 @@ Although likelihood will be less, during the lifespan of the bug development, th
 If the branch does not exist yet (check with the Lead), create the branch locally and then push to GitHub. A bug branch should always be 'publicly' available. That is, development should never exist in just one developer's local branch.
 
 ```
-$ git checkout -b bug-id master                     // creates a local branch for the new bug
-$ git push origin bug-id                            // makes the new bug remotely available
+$ git checkout -b bug-id master // creates a local branch for the new bug
+$ git push origin bug-id        // makes the new bug remotely available
 ```
 
 Periodically, changes made to `master` (if any) should be merged back into your bug branch.
 
 
 ```
-$ git merge master                                  // merges changes from master into bug branch
+$ git merge master  // merges changes from master into bug branch
 ```
 
 
 When development on the bug is complete, [the Lead] should merge changes into `master` and then make sure the remote branch is deleted.
 
 ```
-$ git checkout master                               // change to the master branch  
-$ git merge --no-ff bug-id                          // makes sure to create a commit object during merge
-$ git push origin master                            // push merge changes
-$ git push origin :bug-id                           // deletes the remote branch
+$ git checkout master         // change to the master branch  
+$ git merge --no-ff bug-id    // makes sure to create a commit object during merge
+$ git push origin master      // push merge changes
+$ git push origin :bug-id     // deletes the remote branch
 ```
 
 ### Hotfix Branches
@@ -665,8 +673,8 @@ ___
 If the branch does not exist yet (check with the Lead), create the branch locally and then push to GitHub. A hotfix branch should always be 'publicly' available. That is, development should never exist in just one developer's local branch.
 
 ```
-$ git checkout -b hotfix-id stable                  // creates a local branch for the new hotfix
-$ git push origin hotfix-id                         // makes the new hotfix remotely available
+$ git checkout -b hotfix-id stable  // creates a local branch for the new hotfix
+$ git push origin hotfix-id         // makes the new hotfix remotely available
 ```
 
 When development on the hotfix is complete, [the Lead] should merge changes into `stable` and then update the tag.

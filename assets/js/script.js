@@ -7,6 +7,13 @@
 		console.log("object")
 		checkbox.removeAttribute("checked")
 	}
+	
+	// Event listener for clicks on the toggle button (hamburger)
+	toggle.addEventListener("click", function (e) {
+		e.preventDefault() // Prevents the default scrolling behavior
+		checkbox.checked = !checkbox.checked // Toggle the checkbox state
+	})
+	
 	document.addEventListener(
 		"click",
 		function (e) {
