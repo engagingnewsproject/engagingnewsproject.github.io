@@ -20,6 +20,8 @@ Welcome to the CME (Engage) Website documentation. This guide covers everything 
 
 ## First Day on the Job
 
+For more in depth detail see [Technical Docs - First Day on the Job](/mediaengagement-technical-docs/#first-day-on-the-job)
+
 1. **Logins**: Ensure you have logins for the WordPress site ([mediaengagement.org](https://mediaengagement.org)), WP Engine, and the appropriate permissions for the GitHub repository. Speak with the lead developer or your manager to get access.
   
 2. **Setup**: Follow the [Installation](#installation) steps to set up your local environment. It’s recommended to use an IDE like Atom or Visual Studio Code for easier version control and syntax checking.
@@ -28,7 +30,8 @@ Welcome to the CME (Engage) Website documentation. This guide covers everything 
   
 4. **Explore WordPress**: If you’re new to WordPress, take some time to explore the admin panel on your local environment. Feel free to experiment—any issues can be reverted with `git reset --hard origin/master`. Commit frequently and work in new branches.
 
-### Pro Tips:
+##### _Pro Tips:_
+
 - Changes to the frontend are typically located in the templates or SCSS files under the `assets` folder.
 - Backend logic and queries are in the `src` folder, but loose PHP files may also be found throughout.
 
@@ -45,13 +48,24 @@ Welcome to the CME (Engage) Website documentation. This guide covers everything 
 
 ## Installation
 
+For more in depth detail see [Technical Docs - Sync with GitHub](/mediaengagement-technical-docs/#syncing-with-github)
+
 ### Step 1: Install Local App
 - Download and install [WP Engine Local App](https://localwp.com/).
 
 ### Step 2: Import the .zip
 - Request the lead dev for a "slimmer" version of the site.
+
 - In the Local App, click the plus (+) icon and select "Existing ZIP" to import the site. 
+
 - Configure: PHP 8.2.10+, Nginx, and MySQL 8.0.16+.
+
+- Next step it will import. When it is done you can click the "WP Admin" button to open the WordPress Dashboard. Temporary login:
+
+  - Username: `adminDev`
+  - Password: `adminDev`
+  
+After you log in you should add yourself as an "Administrator" user in WP Admin / Users / Add new.
 
 ### Step 3: Add Proxy URL to `webpack.mix.js`
 - Create a `config.json` file in the theme root:
@@ -60,6 +74,8 @@ Welcome to the CME (Engage) Website documentation. This guide covers everything 
     "proxy": "http://localhost:10000"
   }
   ```
+  
+For more in depth detail see [Technical Docs - Set proxy URL in webpack.mix.js](/mediaengagement-technical-docs/#3-set-proxy-url-in-webpackmixjs)
   
 ### Step 4: Proxy Requests for `/wp-content/uploads/`
 - Set up a proxy to save storage on you local machine by fetching images from the live/production site. If this step is not completed your local site willnot show any images.
@@ -102,10 +118,12 @@ location ~ ^/wp-content/uploads/(.*) {
   git fetch --all
   git reset --hard origin/master
   ```
-For more detail see [Technical Docs - Sync with GitHub](mediaengagement-technical-docs/#syncing-with-github)
+  
 ---
 
 ## Local Development
+
+For more in depth detail see [Technical Docs - Local development](/mediaengagement-technical-docs/#local-development)
 
 ### Step 1: Switch Node Version
 Use the Node version in the `.nvmrc` file:
@@ -133,6 +151,8 @@ npm run production
 
 ## Coding Guidelines
 
+For more in depth detail see [Technical Docs - Coding](/mediaengagement-technical-docs/#coding)
+
 ### Best Practices
 1. **Performance**: Always consider the performance impact of your changes.
 2. **Modularity**: Functions should do one thing and be easily testable.
@@ -140,7 +160,7 @@ npm run production
 
 ### Git Usage
 - Always create separate branches for new features or bug fixes.
-  - For more detail see [Technical Docs - Sync with GitHub](/mediaengagement-technical-docs/#git-usage)
+  - For more in depth detail see [Technical Docs - Sync with GitHub](/mediaengagement-technical-docs/#git-usage)
 - Push to the `master` branch only after code review and testing.
   
 For more detailed Git workflows, see [Deployment Workflow](#deployment-workflow).
@@ -148,6 +168,8 @@ For more detailed Git workflows, see [Deployment Workflow](#deployment-workflow)
 ---
 
 ## SCSS Guidelines
+
+For more in depth detail see [Technical Docs - CSS](/mediaengagement-technical-docs/#css)
 
 ### Workflow
 - Use **mobile-first** design when writing styles.

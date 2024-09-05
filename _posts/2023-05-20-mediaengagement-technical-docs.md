@@ -154,29 +154,27 @@ npm run production
 A collection of general tips and rules of thumb when coding and building a project.
 
 ## Best practices
-##### **Think about the performance impact of your code and solutions**
+
+> #### Think about the performance impact of your code and solutions
 
 For example: 
 - will the change increase the weight of our page?
 - will the change increase our load time?
 
-
-##### **Don't include large files/libraries when you only need a small subset of it.**
+> #### Don't include large files/libraries when you only need a small subset of it.
 
 For example:
 - importing jQuery for one thing when the site doesn't need it otherwise
 - including the entire Font Awesome icon set when you only need 5 icons.
 - using Bootstrap. You likely don't need to use Bootstrap for one of our projects.
 
-
-##### **Simple is better than Clever**
+> #### Simple is better than Clever
 
 Clever can be fun, but always at the risk of complicating things and making life more difficult for your future self and others. Opt for unglamorous, simple code to save yourself a headache down the road. 
 
 If being clever is going to save you a lot of time or be a big performance boost, be sure to put it in a very simple, well-documented standalone function or module with a simple name that clearly explains what it does, why it should be done this way, and how it works.
 
-
-##### **Functions should do one thing**
+> #### Functions should do one thing
 
 When writing a new function, make sure that it accomplishes one, specific thing. This keeps the code:
 - more testable, 
@@ -188,18 +186,17 @@ Some rules of thumb. You probably need to break apart your function into several
 - if you have a really long function name
 - if your function code is many lines long or has many steps
 
-
-##### **If you can't figure something out, ask for help. But not before trying to solve it yourself first.**
+> #### If you can't figure something out, ask for help. But not before trying to solve it yourself first.
 
 This advice isn't in order to stop you from asking questions, but because some of the best learning happens when you think hard about trying to figure it out on your own. Google it. Read an article or two. Chances are you'll learn something, even if it doesn't lead you to the exact thing you needed to know.
 
-##### **When asking questions, be sure to be detailed on:**
+> #### When asking questions, be sure to be detailed on:
 
 - what you're trying to solve
 - why you need to solve it
 - what you've already tried
 
-##### **Writing a good question does a few things:**
+> #### Writing a good question does a few things:
 
 - helps you organize your thoughts
 - gives you a chance to think about the problem in a different way
@@ -207,18 +204,15 @@ This advice isn't in order to stop you from asking questions, but because some o
 
 I'd estimate 30% of the time I've written a detailed question, I figure out the answer before I finish writing it or right after I ask it :)
 
-
 _Make sure your editor doesn't reformat on save, unless we have something like `prettier` implemented_
 
 When people have different format on save rules, it makes it really hard to review Pull Requests (PR). For example, if one person uses a two tab vs four spacing autoformat on save, the PR will show everyone of those lines from the file as a change rather than just the work that was completed. So, maybe you made one small change, but now every line in the file is shown as a change. This makes it difficult to identify the real change.
 
+> #### Get only the data you need
 
-##### **Get only the data you need**
+When writing a query or requesting data, it's best to get just what you need (or will likely need).
 
-When writing a query or requesting data, it's best to get just what you need (or will likely need) rather than 
-
-
-##### **Keep things organized**
+> #### Keep things organized
 - Look at the existing code base and see if it makes sense for code to be in one place or another. If it doesn't have an obvious place, create a new file using the existing standards of the code.
 
 ## CSS
@@ -227,7 +221,7 @@ _Don't use !important in your CSS unless you have a really, really good reason_
 
 That's it.
 
-##### **Keep specificity low.**
+- **Keep specificity low.**
 
 CSS uses specificity to determine which rules get applied. The rule with the highest specificity will get used.
 
@@ -240,8 +234,7 @@ A few tips:
 - Try to keep two levels deep at the most, like: `.classname-one .classname-two {}`.
 - Ideally keep things one level deep: `.classname__item {}`
 
-
-##### **Use BEM naming conventions**
+- **Use BEM naming conventions**
 
 This helps keep specificity low and helps you organize your code. Google it to find out more. Here's the basics:
 
@@ -250,7 +243,7 @@ This helps keep specificity low and helps you organize your code. Google it to f
 3. `.article--research` or `.article__title--red` is the modifier of the element/block. Use `--` to do this.
 4. Don't bother doing more than one element, even if it is technically built that way. For example, `.article__title__link` would technically be used for this structure `<article><h1><a></a></h1></article>`, but it's really annoying and doesn't benefit that much. Just give it a unique element name like `.article__title-link`.
 
-### CSS via SCSS
+#### CSS via SCSS
 
 Engage CSS is compiled with [SCSS](https://sass-lang.com/). 
 
@@ -288,10 +281,10 @@ A simple breakdown:
 2. Styles for larger screens
 3. `@supports` rules for supporting browsers. Within the `@supports` at-rules refer back to #1 (mobile first, then larger screens).
 
-### Mixins & Variables
+#### Mixins & Variables
 As a general rule try to use the mixins and variables as much as you can. This will ensure design continuity and better code maintenance for future devs. A good example is the `$spacer` variable. If we always use this variable, or the other variants that apply (`$spacer-sm`, `$spacer-md`, `$spacer-lg` ext.) we can easily change them in one file. Same with mixins.
 
-### Mixins In Depth
+#### Mixins In Depth
 ##### Media Queries
 See the `assets/scss/global/_mixins.scss` file.
 
@@ -397,7 +390,7 @@ outputs:
 
 ## Theme Structure
 
-### Timber & Twig
+- **Timber & Twig**
 
 Engage is based on the [Timber Framework](https://upstatement.com/timber/) using the [Twig templating engine](https://twig.symfony.com/). Explore the links below to learn more.
 
@@ -405,37 +398,10 @@ Engage is based on the [Timber Framework](https://upstatement.com/timber/) using
 - [Timber Learning Guides](https://code.tutsplus.com/series/kick-start-wordpress-development-with-twig--cms-974)
 - [Twig Documentation](https://twig.symfony.com/doc/3.x/)
 
-### Working on tasks
+- **Working on tasks**
 
 Read through our [Issue Tracking and Git Usage](/mediaengagement#git-usage) wiki for details.
 
-### Advanced Custom Fields
-
-1) Find your fields and repo template file.
-
-    When working on an existing page the best way to find the fields associated with that page is to 
-    * visit the page, 
-    * edit the page, 
-    * open the custom fields in a new tab with the gear icon in the fields header:
-
-![Edit custom fields](https://i.ibb.co/wgWSkyN/Screen-Shot-2021-09-21-at-8-43-35-AM.png)
-
-You will then have access to the field names, which you can copy and search the repo code to find the associated template.
-
-2) Export/Import new fields
-
-Once you are done on your local dev site, you will need to export your new ACF's for import on the Dev, Staging & Production site.
-
-1) On your local dev site WP Admin dashboard navigate to Custom Fields/Tools.
-2) Select your custom fields and click Export.
-3) Log in to the Dev site WP Admin dashboard and navigate to Custom Fields/Tools.
-4) Import the file you exported from your Local Dev site.
-5) Repeat steps 1-4 for the Staging and Production sites.
-
-##### Notes on Post Type Archive Queries
-Basically the whole site archive structure is powered by queries set in `src/Managers/Permalinks.php`. We've overridden the default queries so we can set our own queries with the verticals added in. There may be a better way to do this, but this way at least gets us a very specific way of modifying the query based on a pretty URL.
-
-To adjust a query, you'll need to add/modify the query in `src/Managers/Permalinks.php` and then re-save the permalinks in Settings->Permalinks.
 
 ## Git usage
 
@@ -451,7 +417,7 @@ Important things to remember:
 
 After changes have been pushed to the [Staging Site](https://cmestaging.wpengine.com/) send a link to Kat for review.
 
-## Quick Working Development Guide
+# Quick Working Development Guide
 
 When you take on a task:
 
@@ -695,6 +661,149 @@ $ git push origin master                            // push merge changes
 $ git push origin :hotfix-id                        // deletes the remote branch
 ```
 
+# Wordpress
+## Hooks and filters
+
+They're the foundation of how to build things in WordPress. The very, very basic idea is: 
+- Hooks are used when you want something to happen at a certain time. Like, when a post is saved, do this unrelated thing.
+
+- Filters are used when you want to change the data that gets used. Like, when a post is saved, change it to all caps or whatever...
+
+- Learn about [WP_Query()](https://developer.wordpress.org/reference/classes/wp_query/)
+
+You'll use this A LOT. It's very powerful and you can access whatever posts you want by building the right query. You shouldn't ever really need to write your own SQL query to get what you need. `WP_Query()` can likely do what you want.
+
+## Images
+
+When small images are resized to make them larger, it is very noticeable and the larger they become, the more blurred they are. It is a serious problem. Upload an image that is too small for your website and the result will be blurred images.
+
+If you don’t know what size to use, upload a larger image than you might need rather than a smaller one because there is less blurring with shrinking images to fit than with stretching them.
+
+[More info here.](https://rawinfopages.co.uk/are-your-photos-blurry-on-wordpress-solve-image-problems/)
+
+## Editing
+Simple interface for adding new publications to the publications page: 
+
+![CME Publications Page Edit](https://i.ibb.co/Px51VXv/cme-publications-edit.png)
+
+1. Add a new publication
+2. Drag to reorder
+3. Delete a publication.
+4. Add a publication in between.
+
+## New Post Type/Taxonomy
+
+How to add a new post type or taxonomy.
+
+1. Add the post type and taxonomy as one file under `/Managers/Structures/PostTypes`
+
+2. Add the rewrites for the new post type following the format under `/Managers/Permalinks`
+
+3. Add the rewrites for the vertical under `/Managers/Permalinks/addVerticalRewrites()`
+
+4. Add the taxonomy slug to the $taxRewriteMap in `/Models/Permalinks`
+
+5. Register the Post Type to the Vertical Taxonomy under `/Managers/Taxonomies/Taxonomies`
+
+6. Update Permalinks
+
+7. Register a new filter menu for the item in Globals.php following the format for the other post types
+
+8. Edit `/archive.php` to specify what filter menu should apply for your new archive, however you need it set-up
+
+9. Go to Options -> Custom Fields -> Archive Landing Pages -> Landing Pages -> Landing Page Type and add the post type slug as an option for this field
+
+10. Test it out!
+
+# Plugins
+
+Only make edits on the Engage theme & never use the Theme Editor. 
+
+![Never use the WP Theme Editor](https://i.ibb.co/WKg3z0F/Screen-Shot-2021-01-28-at-12-11-17-PM.png)
+
+Wordpress core and plugin files should not be edited/changed due to ongoing updates, as your edits will be overwritten. If you would like to make changes related to plugins do those from within the plugin’s admin settings inside the WordPress admin dashboard on your local install.
+
+## Advanced Custom Fields
+
+1) Find your fields and repo template file.
+
+When working on an existing page the best way to find the fields associated with that page is to 
+* visit the page, 
+* edit the page, 
+* open the custom fields in a new tab with the gear icon in the fields header:
+
+![Edit custom fields](https://i.ibb.co/wgWSkyN/Screen-Shot-2021-09-21-at-8-43-35-AM.png)
+
+You will then have access to the field names, which you can copy and search the repo code to find the associated template.
+
+2) Export/Import new fields
+
+Once you are done on your local dev site, you will need to export your new ACF's for import on the Dev, Staging & Production site.
+
+1) On your local dev site WP Admin dashboard navigate to Custom Fields/Tools.
+2) Select your custom fields and click Export.
+3) Log in to the Dev site WP Admin dashboard and navigate to Custom Fields/Tools.
+4) Import the file you exported from your Local Dev site.
+5) Repeat steps 1-4 for the Staging and Production sites.
+
+##### Notes on Post Type Archive Queries
+Basically the whole site archive structure is powered by queries set in `src/Managers/Permalinks.php`. We've overridden the default queries so we can set our own queries with the verticals added in. There may be a better way to do this, but this way at least gets us a very specific way of modifying the query based on a pretty URL.
+
+To adjust a query, you'll need to add/modify the query in `src/Managers/Permalinks.php` and then re-save the permalinks in Settings->Permalinks.
+
+
+## ENP Registration Plugin
+
+WordPress registration email edit
+
+See the [enp-custom-registration](https://github.com/engagingnewsproject/enp-custom-registration) repo/plugin.
+
+## SEO / Rank Math
+
+**Understanding Rank Math**
+
+Important links:
+
+- Use [Google Trends](https://trends.google.com/trends/) to explore the keyword's search ranking.
+- [Choosing Focus Keywords](https://rankmath.com/kb/score-100-in-tests/#first-step-choosing-focus-keywords)
+- [Understanding Rank Math Color Codes](https://rankmath.com/kb/score-100-in-tests/#making-sense-of-rank-math-s-recommendations-the-color-codes)
+- [Focus Keyword in the Meta Description](https://rankmath.com/kb/score-100-in-tests/#focus-keyword-in-the-meta-description-primary-focus-keyword-only)
+- [Focus Keyword in the URL](https://rankmath.com/kb/score-100-in-tests/#focus-keyword-in-the-url-primary-focus-keyword-only)
+- [Focus Keyword at the beginning of the content](https://rankmath.com/kb/score-100-in-tests/#focus-keyword-at-the-beginning-of-the-content)
+
+**SEO on Research pages**
+
+1. Add the focus keyword
+
+    ![add the focus keyword here](https://user-images.githubusercontent.com/30611098/125837621-c8e3d7fc-0915-47bc-ab99-c2ceca544742.png)
+
+2. Add meta description (with the focus keyword in copy)
+
+    ![meta-description-01](https://user-images.githubusercontent.com/30611098/125838079-a760f9ee-8512-4fe2-9b4b-c734910dc322.png)
+    ![meta-description-02](https://user-images.githubusercontent.com/30611098/125838081-07fcea36-c79d-44de-a03c-056c899b9d16.png)
+
+3. Add the focus keyword as alt text to Featured Image.
+  
+    ![feat-image-01](https://user-images.githubusercontent.com/30611098/125838239-24de3647-d49f-4c2b-aa18-321c8fd5dd8d.png)
+    ![feat-image-02](https://user-images.githubusercontent.com/30611098/125838665-5e621a82-98da-482f-b5cf-eedd3f8289ff.png)
+
+
+**Use the _Analytics_ & _SEO Analysis_  pages to dig into:**
+
+- Top pages, posts and research to optimize.
+- Possible errors highlighted in red on the _SEO Analysis_ page
+
+  ![Screen Shot 2021-07-15 at 11 05 37 AM](https://user-images.githubusercontent.com/30611098/125836219-36b56b4d-f995-45c1-b004-3c3ac8325ba9.png)
+
+- [Also, check out these Rank Math pages for more help.](https://github.com/engagingnewsproject/enp-platform/wiki/WordPress-Plugins#rank-math)
+
+## Taxonomies Explained
+
+_ongoing little tid-bits of valuable info for Verticals, Categories & Tags_
+
+[Media Ethics vertical page](https://mediaengagement.org/vertical/media-ethics/) tiles show up only if you have uploaded a "Category Featured Image" in the `Research/Research Category/[category name]` menu area.
+
+
 # Deployment
 
 There are three sites that make up our deployment flow:
@@ -919,121 +1028,9 @@ _** Be sure to replace your_email@example.com with your own email address_
 - [WP Engine Git Version Control System Docs](https://wpengine.com/support/git/?_gl=1*dje4od*_ga*MTY2MTM5NTM3Ni4xNjUxNjA0NDQ2*_ga_9HX6WG40N2*MTY2MzYxNTcxNi4yMi4xLjE2NjM2MTY0MzQuMC4wLjA.)
 - [WP Engine Add SSH Key to User Portal Docs](https://wpengine.com/support/git/#Add_SSH_Key_to_User_Portal)
 
-# Wordpress
-## Hooks and filters
+# Other help sections
 
-They're the foundation of how to build things in WordPress. The very, very basic idea is: 
-- Hooks are used when you want something to happen at a certain time. Like, when a post is saved, do this unrelated thing.
-
-- Filters are used when you want to change the data that gets used. Like, when a post is saved, change it to all caps or whatever...
-
-- Learn about [WP_Query()](https://developer.wordpress.org/reference/classes/wp_query/)
-
-You'll use this A LOT. It's very powerful and you can access whatever posts you want by building the right query. You shouldn't ever really need to write your own SQL query to get what you need. `WP_Query()` can likely do what you want.
-
-## Images
-
-When small images are resized to make them larger, it is very noticeable and the larger they become, the more blurred they are. It is a serious problem. Upload an image that is too small for your website and the result will be blurred images.
-
-If you don’t know what size to use, upload a larger image than you might need rather than a smaller one because there is less blurring with shrinking images to fit than with stretching them.
-
-[More info here.](https://rawinfopages.co.uk/are-your-photos-blurry-on-wordpress-solve-image-problems/)
-
-## Editing
-Simple interface for adding new publications to the publications page: 
-
-![CME Publications Page Edit](https://i.ibb.co/Px51VXv/cme-publications-edit.png)
-
-1. Add a new publication
-2. Drag to reorder
-3. Delete a publication.
-4. Add a publication in between.
-
-## New Post Type/Taxonomy
-
-How to add a new post type or taxonomy.
-
-1. Add the post type and taxonomy as one file under `/Managers/Structures/PostTypes`
-
-2. Add the rewrites for the new post type following the format under `/Managers/Permalinks`
-
-3. Add the rewrites for the vertical under `/Managers/Permalinks/addVerticalRewrites()`
-
-4. Add the taxonomy slug to the $taxRewriteMap in `/Models/Permalinks`
-
-5. Register the Post Type to the Vertical Taxonomy under `/Managers/Taxonomies/Taxonomies`
-
-6. Update Permalinks
-
-7. Register a new filter menu for the item in Globals.php following the format for the other post types
-
-8. Edit `/archive.php` to specify what filter menu should apply for your new archive, however you need it set-up
-
-9. Go to Options -> Custom Fields -> Archive Landing Pages -> Landing Pages -> Landing Page Type and add the post type slug as an option for this field
-
-10. Test it out!
-
-# Plugins
-
-Only make edits on the Engage theme & never use the Theme Editor. 
-
-![Never use the WP Theme Editor](https://i.ibb.co/WKg3z0F/Screen-Shot-2021-01-28-at-12-11-17-PM.png)
-
-Wordpress core and plugin files should not be edited/changed due to ongoing updates, as your edits will be overwritten. If you would like to make changes related to plugins do those from within the plugin’s admin settings inside the WordPress admin dashboard on your local install.
-
-## ENP Registration Plugin
-
-WordPress registration email edit
-
-See the [enp-custom-registration](https://github.com/engagingnewsproject/enp-custom-registration) repo/plugin.
-
-## SEO / Rank Math
-
-**Understanding Rank Math**
-
-Important links:
-
-- Use [Google Trends](https://trends.google.com/trends/) to explore the keyword's search ranking.
-- [Choosing Focus Keywords](https://rankmath.com/kb/score-100-in-tests/#first-step-choosing-focus-keywords)
-- [Understanding Rank Math Color Codes](https://rankmath.com/kb/score-100-in-tests/#making-sense-of-rank-math-s-recommendations-the-color-codes)
-- [Focus Keyword in the Meta Description](https://rankmath.com/kb/score-100-in-tests/#focus-keyword-in-the-meta-description-primary-focus-keyword-only)
-- [Focus Keyword in the URL](https://rankmath.com/kb/score-100-in-tests/#focus-keyword-in-the-url-primary-focus-keyword-only)
-- [Focus Keyword at the beginning of the content](https://rankmath.com/kb/score-100-in-tests/#focus-keyword-at-the-beginning-of-the-content)
-
-**SEO on Research pages**
-
-1. Add the focus keyword
-
-    ![add the focus keyword here](https://user-images.githubusercontent.com/30611098/125837621-c8e3d7fc-0915-47bc-ab99-c2ceca544742.png)
-
-2. Add meta description (with the focus keyword in copy)
-
-    ![meta-description-01](https://user-images.githubusercontent.com/30611098/125838079-a760f9ee-8512-4fe2-9b4b-c734910dc322.png)
-    ![meta-description-02](https://user-images.githubusercontent.com/30611098/125838081-07fcea36-c79d-44de-a03c-056c899b9d16.png)
-
-3. Add the focus keyword as alt text to Featured Image.
-  
-    ![feat-image-01](https://user-images.githubusercontent.com/30611098/125838239-24de3647-d49f-4c2b-aa18-321c8fd5dd8d.png)
-    ![feat-image-02](https://user-images.githubusercontent.com/30611098/125838665-5e621a82-98da-482f-b5cf-eedd3f8289ff.png)
-
-
-**Use the _Analytics_ & _SEO Analysis_  pages to dig into:**
-
-- Top pages, posts and research to optimize.
-- Possible errors highlighted in red on the _SEO Analysis_ page
-
-  ![Screen Shot 2021-07-15 at 11 05 37 AM](https://user-images.githubusercontent.com/30611098/125836219-36b56b4d-f995-45c1-b004-3c3ac8325ba9.png)
-
-- [Also, check out these Rank Math pages for more help.](https://github.com/engagingnewsproject/enp-platform/wiki/WordPress-Plugins#rank-math)
-
-## Taxonomies Explained
-
-_ongoing little tid-bits of valuable info for Verticals, Categories & Tags_
-
-[Media Ethics vertical page](https://mediaengagement.org/vertical/media-ethics/) tiles show up only if you have uploaded a "Category Featured Image" in the `Research/Research Category/[category name]` menu area.
-
-
-# SSH commands
+#### SSH commands
 
 Connect to site
 
@@ -1053,7 +1050,7 @@ or to sort
 
 `$ du -h --max-depth 1|sort -h`
 
-# DB Commands
+#### DB Commands
 
 **Export DB excluding heavy tables**
 
@@ -1095,7 +1092,7 @@ If exporting from the live site or a pulled version of the live site, its best t
   `wp rewrite flush`
 
 
-### Optimize All Database Tables with WP-CLI
+#### Optimize All Database Tables with WP-CLI
 
 To optimize all tables in your database, run the following command:
 
@@ -1105,7 +1102,7 @@ wp db optimize
 
 This command will optimize all the tables in your WordPress database, including `wp_posts`, `wp_postmeta`, `wp_usermeta`, `wp_options`, and any other tables present in the database.
 
-### Optimize Specific Tables (Optional)
+#### Optimize Specific Tables (Optional)
 
 If you want to optimize specific tables only, you can do so by running a SQL query through WP-CLI:
 
@@ -1113,7 +1110,7 @@ If you want to optimize specific tables only, you can do so by running a SQL que
 wp db query "OPTIMIZE TABLE wp_posts, wp_postmeta, wp_usermeta, wp_options;"
 ```
 
-# Troubleshooting
+#### Troubleshooting
 
 ## Valet
 
@@ -1161,7 +1158,7 @@ To ensure that Local by Flywheel is managing the ports and services correctly, r
 ### Summary
 By stopping or uninstalling Laravel Valet, you can ensure it doesn't interfere with your ports when using the Local App by Flywheel. This will allow Local to manage your local development environment without conflicts.
 
-# WP_CLI
+#### WP_CLI
 
 ## Update all outdated plugins
 
