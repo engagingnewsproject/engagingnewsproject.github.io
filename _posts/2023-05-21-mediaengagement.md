@@ -102,7 +102,7 @@ location ~ ^/wp-content/uploads/(.*) {
   git fetch --all
   git reset --hard origin/master
   ```
-
+For more detail see [Technical Docs - Sync with GitHub](mediaengagement-technical-docs/#syncing-with-github)
 ---
 
 ## Local Development
@@ -140,6 +140,7 @@ npm run production
 
 ### Git Usage
 - Always create separate branches for new features or bug fixes.
+  - For more detail see [Technical Docs - Sync with GitHub](/mediaengagement-technical-docs/#git-usage)
 - Push to the `master` branch only after code review and testing.
   
 For more detailed Git workflows, see [Deployment Workflow](#deployment-workflow).
