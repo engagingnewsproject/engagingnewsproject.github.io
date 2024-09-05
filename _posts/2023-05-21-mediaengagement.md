@@ -111,41 +111,91 @@ location ~ ^/wp-content/uploads/(.*) {
 	</details>
 
 ### Step 5: Sync with GitHub
-- Initialize the repository and set the remote origin:
-  ```bash
-  git init
-  git remote add origin https://github.com/engagingnewsproject/enp-platform.git
-  git fetch --all
-  git reset --hard origin/master
-  ```
+
+In terminal navigate into `~/[site root]/app/public` and enter the following commands to initialize the repository and set the remote origin:
+
+```bash
+git init
+git remote add origin https://github.com/engagingnewsproject/enp-platform.git
+git fetch --all
+git reset --hard origin/master
+```
+
+Now you should be connected to the GitHub Repo and in sync with the `master` branch. To confirm this run:
+
+```bash
+git remote -v
+```
+
+Output should be something like:
+
+```bash
+origin  https://github.com/engagingnewsproject/enp-platform.git (fetch)
+origin  https://github.com/engagingnewsproject/enp-platform.git (push)
+```
   
 ---
 
 ## Local Development
 
-For more in depth detail see [Technical Docs - Local development](/mediaengagement-technical-docs/#local-development)
+### Initial Setup
 
-### Step 1: Switch Node Version
+You will only need to run the Initial Setup once. 
+
+Be sure to run below steps 1-4 from the `engage-2-x/` theme directory:
+
+`[site root]/app/public/wp-content/themes/engage-2-x`
+
+##### Step 1: Install `nvm`
+
+If not installed already, install `nvm` (Node version manager) on your local machine. 
+
+- [See `nvm` installation instructions here.](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+
+##### Step 2: Create `.nvmrc` file
+
+Create a `.nvmrc` file in your `[site root]/app/public/` directory with one line as the content:
+
+```bash
+8.7.0
+``` 
+
+##### Step 3: Switch Node Version
 Use the Node version in the `.nvmrc` file:
 ```bash
 nvm use
 ```
 
-### Step 2: Install Dependencies
+##### Step 4: Install Dependencies
 ```bash
 npm install
 ```
 
-### Step 3: Start Development Environment
+### Boot up local server
+
+##### Step 1: Create a branch for your task
+
+First create a new local branch according to the [Quick Working Development Guide](/mediaengagement-technical-docs/#quick-working-development-guide)
+
+##### Step 2: Start Development Environment
+The `watch` command below boots up your local dev server with live reloading. From the `engage-2-x/` theme directory run:
 ```bash
 npm run watch
 ```
 
-### Step 4: Build for Production
+To close your local dev server hit `control + c`.
+
+> Important to run the command below when you are done working on your task and ready to push to origin.
+
+##### Step 3: Build for Production
 Before pushing changes, compile and minify the assets:
 ```bash
 npm run production
 ```
+
+Now you can push your changes to the remote origin.
+
+Technical Docs - [Local development](/mediaengagement-technical-docs/#local-development)
 
 ---
 
@@ -154,16 +204,22 @@ npm run production
 For more in depth detail see [Technical Docs - Coding](/mediaengagement-technical-docs/#coding)
 
 ### Best Practices
+
 1. **Performance**: Always consider the performance impact of your changes.
+
 2. **Modularity**: Functions should do one thing and be easily testable.
+
 3. **Code Simplicity**: Prioritize simple, well-documented code over clever or complex solutions.
 
 ### Git Usage
+
 - Always create separate branches for new features or bug fixes.
-  - For more in depth detail see [Technical Docs - Sync with GitHub](/mediaengagement-technical-docs/#git-usage)
+  - For more in depth detail see [Technical Docs - Git Usage](/mediaengagement-technical-docs/#git-usage)
+
+
 - Push to the `master` branch only after code review and testing.
   
-For more detailed Git workflows, see [Deployment Workflow](#deployment-workflow).
+For more detailed Git workflows, see [Technical Docs - Quick Working Development Guide](/mediaengagement-technical-docs/#quick-working-development-guide).
 
 ---
 
