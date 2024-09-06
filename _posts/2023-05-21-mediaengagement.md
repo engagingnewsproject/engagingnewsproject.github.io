@@ -213,7 +213,18 @@ Technical Docs - [Local development](/mediaengagement-technical-docs/#local-deve
 
 ## Coding Guidelines
 
-For more in depth detail see [Technical Docs - Coding](/mediaengagement-technical-docs/#coding)
+### Files You Should Not Edit in the Theme
+
+It’s important to understand that certain files and folders in the `engage-2-x` the should never be manually edited because they are automatically generated or managed by external tools. Editing these files can lead to confusion, break the site or cause your changes to be overwritten.
+
+1. **`dist/` Folder**: Contains compiled files. Do not edit them.
+2. **`node_modules/` Folder**: Contains npm dependencies. Managed automatically.
+3. **`vendor/` Directory**: Contains PHP dependencies, managed by Composer.
+4. **`config.json`**: Each developer manages their own local version.
+5. **`.lock` Files**: Managed by Composer and npm, don't edit manually.
+6. **`mix-manifest.json`**: Automatically generated, no need to change.
+
+For more in depth detail see [Technical Docs - Coding Guidelines](/mediaengagement-technical-docs/#files-you-should-not-edit)
 
 ### Best Practices
 
@@ -255,8 +266,8 @@ For more in depth detail see [Technical Docs - CSS](/mediaengagement-technical-d
 ## Theme Structure
 
 Engage uses the **Timber** framework and **Twig** templating engine. Familiarize yourself with:
-- [Timber Documentation](http://timber.github.io/timber)
-- [Twig Documentation](https://twig.symfony.com)
+- [Timber Documentation](https://timber.github.io/docs/v2/)
+- [Twig Documentation](https://twig.symfony.com/doc/3.x/intro.html)
 
 ---
 
