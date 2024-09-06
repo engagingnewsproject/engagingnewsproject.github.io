@@ -28,7 +28,11 @@ For more in depth detail see [Technical Docs - First Day on the Job](/mediaengag
   
 3. **Git Usage**: After your setup, familiarize yourself with our Git practices by reading the [Git Usage Docs](#git-usage).
   
-4. **Explore WordPress**: If you’re new to WordPress, take some time to explore the admin panel on your local environment. Feel free to experiment—any issues can be reverted with `git reset --hard origin/master`. Commit frequently and work in new branches.
+4. **Explore Timber**: Check out this [Timber Syntax video](https://youtu.be/Toq3CXgwWgw?t=263) to familiarize yourself with Timber and Twig.
+
+_You can watch the whole video, but it covers the old way of using Timber through a plugin. Timber is now part of the theme code so disregard the plugin installation parts._
+
+5. **Explore WordPress**: If you’re new to WordPress, take some time to explore the admin panel on your local environment. Feel free to experiment—any issues can be reverted with `git reset --hard origin/master`. Commit frequently and work in new branches.
 
 ##### _Pro Tips:_
 
