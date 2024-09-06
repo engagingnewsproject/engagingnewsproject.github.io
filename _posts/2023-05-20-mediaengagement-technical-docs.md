@@ -155,7 +155,7 @@ A collection of general tips and rules of thumb when coding and building a proje
 
 ### Files you should not edit
 
-It’s important to understand that certain files and folders in your project should never be manually edited because they are automatically generated or managed by external tools. Editing these files can lead to confusion or cause your changes to be overwritten.
+It’s important to understand that certain files and folders in the `engage-2-x/` directory/theme should never be manually edited because they are automatically generated or managed by external tools. Editing these files can lead to confusion or cause your changes to be overwritten.
 
 #### 1. SCSS Output `.css` Files:
 

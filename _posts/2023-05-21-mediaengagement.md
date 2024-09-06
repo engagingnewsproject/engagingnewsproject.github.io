@@ -213,9 +213,9 @@ Technical Docs - [Local development](/mediaengagement-technical-docs/#local-deve
 
 ## Coding Guidelines
 
-### Files You Should Not Edit in the Theme
+### Files You Should Not Edit
 
-It’s important to understand that certain files and folders in the `engage-2-x` the should never be manually edited because they are automatically generated or managed by external tools. Editing these files can lead to confusion, break the site or cause your changes to be overwritten.
+It’s important to understand that certain files and folders in the `engage-2-x/` directory/theme the should never be manually edited because they are automatically generated or managed by external tools. Editing these files can lead to confusion, break the site or cause your changes to be overwritten.
 
 1. **`dist/` Folder**: Contains compiled files. Do not edit them.
 2. **`node_modules/` Folder**: Contains npm dependencies. Managed automatically.
