@@ -37,6 +37,8 @@ For more in depth detail see [Technical Docs - First Day on the Job](/mediaengag
     - Read [Timber and Twig Reignited My Love for WordPress](https://css-tricks.com/timber-and-twig-reignited-my-love-for-wordpress/).
     
     - Read the [Timber Docs Introduction](https://timber.github.io/docs/v2/getting-started/introduction/).
+    
+    - We use Advanced Custom Fields in our engage-2-x/Timber theme so check out this [WordPress Advanced Custom Fields video](https://www.youtube.com/watch?v=eMCOE9x5mCc) to get familiar with how the plugin works.
 
 5. **Explore WordPress**: If you’re new to WordPress, take some time to explore the admin panel on your local environment. Feel free to experiment—any issues can be reverted with `git reset --hard origin/master`. Commit frequently and work in new branches.
 
