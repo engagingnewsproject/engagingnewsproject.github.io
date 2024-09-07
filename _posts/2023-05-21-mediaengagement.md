@@ -10,10 +10,6 @@ github: https://github.com/engagingnewsproject/enp-platform
 github_shortname: engagingnewsproject/enp-platform
 ---
 
-## CME (Engage) Website Documentation
-
-### Introduction
-
 Welcome to the CME (Engage) Website documentation. This guide covers everything you need to know to work on the [WordPress site](https://mediaengagement.org/), including local development setup, theme structure, and best practices.
 
 ---
