@@ -81,7 +81,15 @@ This will save you storage on your machine because all images will be fetched fr
    }
    ```
    
-2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the "{{/unless}}" line in the `# WordPress Rules`:
+2. Open `siteRoot/conf/nginx/site.conf.hbs` in your editor and add the below snippet below the 
+
+<pre>
+  {% raw %}
+    {{unless}}
+  {% endraw %}
+</pre>
+
+line in the `# WordPress Rules`:
     
    ```
    include uploads-proxy.conf;

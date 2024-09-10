@@ -38,6 +38,8 @@ For more in depth detail see [Technical Docs - First Day on the Job](/mediaengag
 
 5. **Explore WordPress**: If you’re new to WordPress, take some time to explore the admin panel on your local environment. Feel free to experiment—any issues can be reverted with `git reset --hard origin/master`. Commit frequently and work in new branches.
 
+    - [WordPress Developer docs - creating custom pages](https://developer.wordpress.org/themes/template-files-section/page-template-files/)
+
 ##### _Pro Tips:_
 
 - Changes to the frontend are typically located in the templates or SCSS files under the `assets` folder.
@@ -104,7 +106,7 @@ location ~ ^/wp-content/uploads/(.*) {
       </li>
       
       <li>
-      <p>Open <code>siteRoot/conf/nginx/site.conf.hbs</code> in your editor and add the below snippet below the <code>{{</code><code>/unless}}</code> line in the `# WordPress Rules`:</p>
+      <p>Open <code>siteRoot/conf/nginx/site.conf.hbs</code> in your editor and add the below snippet below the <code>{{unless}}</code> line in the `# WordPress Rules`:</p>
           
       <pre class="highlight"><code>
   include uploads-proxy.conf;
@@ -265,6 +267,137 @@ Engage uses the **Timber** framework and **Twig** templating engine. Familiarize
 - [Timber Documentation](https://timber.github.io/docs/v2/)
 - [Twig Documentation](https://twig.symfony.com/doc/3.x/intro.html)
 
+### Understanding a custom page template
+
+Check out the existing page, Solidarity Journalisim, setup:
+
+- Base file: page-solidarity-journalism.php renders the page-solidarity-journalism.twig markup:
+```php
+Timber::render(['page-solidarity-journalism.twig'], $context, ENGAGE_PAGE_CACHE_TIME); 
+```
+
+- .twig file: `templates/page-solidarity-journalism.twig` holds the markup/html for the page template.
+
+  - In this file you will also see `include` blocks where other .twig partials are included:
+  
+  <pre>
+    {% raw %}
+      {% include "partial/tile.twig" with { 'tile': post } %}
+    {% endraw %}
+  </pre>
+
+  ![templates](../assets/img/templates.jpg)
+
+  The base `page-solidarity-journalisim.php` file renders the `page-solidarity-journalism.twig` file.
+  
+  `page-solidarity-journalisim.php` code:
+  
+  ```php
+  <?php
+
+  /**
+  * Template Name: Solidarity Journalism
+  * Description: A Page Template for Solidarity Journalism
+  */
+
+  $context	= Timber::context();
+  $post		= $context['post'];
+
+  // get newsroom resource posts from the relationship field
+  $resource_posts = get_field('resource_posts');
+  $context['resource_posts'] = $resource_posts;
+  // END newsroom resource posts
+
+  Timber::render(['page-solidarity-journalism.twig'], $context, ENGAGE_PAGE_CACHE_TIME); // render of the .twig file
+  ```
+  
+  The `Template Name: Solidarity Journalism` is required for WordPress to understand this file is a page template.
+
+  #### Create a sample page template
+
+  You can create a quick sample on your local installation to test. Just copy the `page-solidarity-journalism.php` file code into a new `page-sample.php`
+  
+  Change `page-sample.php` from:
+  
+  ```php
+  <?php
+
+  /**
+  * Template Name: Solidarity Journalism
+  * Description: A Page Template for Solidarity Journalism
+  */
+
+  $context	= Timber::context();
+  $post		= $context['post'];
+
+  // get newsroom resource posts from the relationship field
+  $resource_posts = get_field('resource_posts');
+  $context['resource_posts'] = $resource_posts;
+  // END newsroom resource posts
+
+  Timber::render(['page-solidarity-journalism.twig'], $context, ENGAGE_PAGE_CACHE_TIME); 
+  ```
+  
+  to:
+  
+  ```php
+  <?php
+
+  /**
+  * Template Name: Sample
+  * Description: A Page Template for Sample
+  */
+
+  $context	= Timber::context();
+  $post		= $context['post'];
+
+  // get newsroom resource posts from the relationship field
+  $resource_posts = get_field('resource_posts');
+  $context['resource_posts'] = $resource_posts;
+  // END newsroom resource posts
+
+  Timber::render(['page-sample.twig'], $context, ENGAGE_PAGE_CACHE_TIME); 
+  ```
+  
+  then you create a new `templates/page-sample.twig` file and add simple HTML:
+  ```html
+  <div class="sample-page">
+    <h1>Sample test</h1>
+  </div>
+  ```
+
+  now when you go to WP Admin and add a new page you should see "Sample" in the Page attributes > Template dropdown.
+
+  ![sample-page-template](../assets/img/sample-page-template.png)
+  
+  #### PHP providing the data to the Twig files
+  
+  Referring back to the `page-solidarity-journalism.php` file, this code:
+  
+  ```php
+  $resource_posts = get_field('resource_posts');
+  $context['resource_posts'] = $resource_posts;
+  ```
+  
+  ... is where the `resource_posts` data from Advanced Custom Fields(ACF) is assigned to a variable and adds it to the page `$context`. 
+  
+  **It is highly suggested to check out the [Timber Context Docs](https://timber.github.io/docs/v2/guides/context/).**
+
+  Getting into the fine details now....
+  
+  ```php
+  get_field()
+  ```
+  
+  this is the ACF's function to pull data. In WP Admin sidebar check out the field group ACF > Solidarity Journalism.
+  `resource_posts` Relationship type field corresponds to the `get_field('resource_posts')`.
+  
+  > How are the ACF fields assigned to a page/post template?
+  
+  In the field group look for "Settings". In this example the "Location Rules" are set to the post template "Soldiarity Journalisim"
+  
+  ![acf settings](../assets/img/acf-settings.png)
+  
 ---
 
 ## Plugins
