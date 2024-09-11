@@ -207,8 +207,6 @@ Now you can push your changes to the remote origin.
 
 Technical Docs - [Local development](/mediaengagement-technical-docs/#local-development)
 
----
-
 ### Editor/IDE
 
 At this time of writing, the recommended editor/IDE is [VS Code](https://code.visualstudio.com/). Here's a list of the VS Code recommended extensions:
@@ -227,6 +225,8 @@ At this time of writing, the recommended editor/IDE is [VS Code](https://code.vi
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) 
 - [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+
+---
 
 ## Coding Guidelines
 
