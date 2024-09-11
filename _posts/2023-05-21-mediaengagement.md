@@ -211,9 +211,9 @@ Technical Docs - [Local development](/mediaengagement-technical-docs/#local-deve
 
 ### Editor/IDE
 
-At this time of writing, the recommended editor/IDE is [VS Code](https://code.visualstudio.com/). Here's a list of the VS Code recommended exstensions:
+At this time of writing, the recommended editor/IDE is [VS Code](https://code.visualstudio.com/). Here's a list of the VS Code recommended extensions:
 
-**Main Exstensions**
+**Main Extensions**
 - [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
 - [PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker)
 - [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
@@ -223,7 +223,7 @@ At this time of writing, the recommended editor/IDE is [VS Code](https://code.vi
 - [Timber Snippets](https://marketplace.visualstudio.com/items?itemName=jdcreations.timber-snippets)
 - [Twig Language 2](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language-2)
 
-**Additional Exstensions**
+**Additional Extensions**
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) 
 - [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
 - [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
