@@ -209,6 +209,25 @@ Technical Docs - [Local development](/mediaengagement-technical-docs/#local-deve
 
 ---
 
+### Editor/IDE
+
+At this time of writing, the recommended editor/IDE is [VS Code](https://code.visualstudio.com/). Here's a list of the VS Code recommended exstensions:
+
+**Main Exstensions**
+- [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug)
+- [PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker)
+- [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
+- [PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=zobo.php-intellisense)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Timber Snippets](https://marketplace.visualstudio.com/items?itemName=jdcreations.timber-snippets)
+- [Twig Language 2](https://marketplace.visualstudio.com/items?itemName=mblode.twig-language-2)
+
+**Additional Exstensions**
+- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) 
+- [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+
 ## Coding Guidelines
 
 ### Files You Should Not Edit
