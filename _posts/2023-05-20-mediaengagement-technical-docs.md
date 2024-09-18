@@ -753,6 +753,83 @@ $ git push origin master                            // push merge changes
 $ git push origin :hotfix-id                        // deletes the remote branch
 ```
 
+Writing clear and meaningful Git commit messages is an essential practice for maintaining a well-organized codebase. Here are some best practices to help you create effective Git commit messages:
+
+## Git Commit Messages
+
+Writing good Git commit messages improves collaboration, code tracking, and future maintainability. Following these best practices ensures that your messages are informative, concise, and provide meaningful context for your changes.
+
+### 1. **Use the Imperative Mood**
+   - Write your commit message as though you're giving a command. For example, use "Fix bug" instead of "Fixed bug" or "Fixes bug."
+   - **Why?** The imperative mood is consistent with the way Git messages are structured (e.g., “merge branch” or “revert changes”), and it helps describe what the commit will do when applied.
+   - **Example**: 
+     ```
+     Add feature to handle user authentication
+     ```
+
+### 2. **Keep Messages Brief and Descriptive**
+   - Keep the subject line (the first line of the commit message) under 50 characters. This ensures the message is easy to read and fits well in Git logs.
+   - Be concise but make sure it clearly explains **what** the change is about.
+   - **Example**:
+     ```
+     Update navbar style to improve mobile experience
+     ```
+
+### 3. **Use a Blank Line Between Subject and Body**
+   - If you need to add more details, leave the first line for the summary, add a blank line, and then expand on the change in the body.
+   - **Example**:
+     ```
+     Refactor user authentication module
+
+     Reorganized the code to simplify login flow and enhance session management. Improved error handling and reduced duplication in the logic.
+     ```
+
+### 4. **Explain the “Why” in the Body**
+   - The body should explain **why** the changes were made and provide any additional context that will help future developers (or yourself) understand the reasoning behind the commit.
+   - Avoid restating the "what" (already captured in the subject), and instead, focus on the "why" or "how."
+   - **Example**:
+     ```
+     Add caching for API responses
+
+     Implemented a caching layer to reduce the load on the external API and improve response times. This should help with scalability during peak traffic.
+     ```
+
+### 5. **Reference Issues or Tickets**
+   - Reference the relevant issue number to create a link between the commit and the ticket.
+   - **Example**:
+     ```
+     Fix issue with user registration validation
+
+     Closes #23 by adding validation for email formatting and preventing duplicate registrations.
+     ```
+
+### 6. **Write Meaningful Messages**
+   - Avoid vague terms like “update,” “fix,” or “change” unless paired with more specific details. The commit message should be understandable even outside the context of the code.
+   - **Bad Example**: `Fix bug`
+   - **Good Example**: `Fix null pointer exception in payment gateway`
+
+### 7. **Use Multiple Commits for Logical Changes**
+   - If you're making multiple unrelated changes, split them into separate commits. This makes it easier to understand and revert specific changes if necessary.
+   - **Example**:
+     ```
+     Refactor user controller for readability
+     Update user email validation logic
+     ```
+
+### 8. **Avoid Capitalizing File Names or Code References**
+   - The commit message should focus on describing the change, not listing the files or functions affected.
+   - **Example**:
+     ```
+     Remove deprecated API endpoints
+     ```
+
+### 9. **Avoid WIP (Work in Progress) Commits**
+   - Commits should represent a coherent change or feature. Avoid pushing “Work in Progress” commits to the main branch. Use branches to manage WIP code.
+   - **Example**:
+     ```
+     Add unit tests for user registration feature
+     ```
+
 # Wordpress
 ## Hooks and filters
 
