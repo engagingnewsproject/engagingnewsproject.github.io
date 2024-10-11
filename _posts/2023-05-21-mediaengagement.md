@@ -144,6 +144,12 @@ origin  https://github.com/engagingnewsproject/enp-platform.git (fetch)
 origin  https://github.com/engagingnewsproject/enp-platform.git (push)
 ```
   
+Last you can clean up untracked files (if needed): If you want to remove any untracked files or directories that are not present in the master branch, you can run:
+
+```
+git clean -fd
+```
+
 ---
 
 ## Local Development
